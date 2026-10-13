@@ -3,7 +3,7 @@ export const initialBookings = [
     id: "BK-8021",
     userId: "usr-001",
     customerName: "Rahul Sharma",
-    customerEmail: "user@autoserve.com",
+    customerEmail: "user@vvcars.com",
     customerPhone: "+91 98765 43210",
     vehicleId: "veh-001",
     vehicleDetails: {
@@ -36,7 +36,7 @@ export const initialBookings = [
     id: "BK-8022",
     userId: "usr-001",
     customerName: "Rahul Sharma",
-    customerEmail: "user@autoserve.com",
+    customerEmail: "user@vvcars.com",
     customerPhone: "+91 98765 43210",
     vehicleId: "veh-002",
     vehicleDetails: {
@@ -135,7 +135,7 @@ export const initialBookings = [
     id: "BK-8020",
     userId: "usr-001",
     customerName: "Rahul Sharma",
-    customerEmail: "user@autoserve.com",
+    customerEmail: "user@vvcars.com",
     customerPhone: "+91 98765 43210",
     vehicleId: "veh-001",
     vehicleDetails: {

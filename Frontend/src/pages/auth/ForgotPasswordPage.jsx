@@ -94,7 +94,7 @@ export const ForgotPasswordPage = () => {
         {step === 1 && (
           <form onSubmit={handleSendOtp} className="space-y-4">
             <p className="text-xs text-slate-600 leading-relaxed">
-              Enter your registered AutoServe account email address and we'll send a one-time verification passcode.
+              Enter your registered VV Cars account email address and we'll send a one-time verification passcode.
             </p>
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email Address</label>
@@ -104,7 +104,7 @@ export const ForgotPasswordPage = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="e.g. user@autoserve.com"
+                  placeholder="e.g. user@vvcars.com"
                   required
                   className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl pl-10 pr-4 py-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
@@ -208,7 +208,7 @@ export const ForgotPasswordPage = () => {
             </div>
             <h4 className="text-xl font-bold text-slate-900">Password Updated!</h4>
             <p className="text-xs text-slate-600 max-w-xs mx-auto">
-              Your password has been changed successfully. You can now log into your AutoServe portal with your new password.
+              Your password has been changed successfully. You can now log into your VV Cars portal with your new password.
             </p>
             <Link
               to="/login"

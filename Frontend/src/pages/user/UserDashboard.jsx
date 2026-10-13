@@ -148,7 +148,7 @@ export const UserDashboard = () => {
           <div className="flex items-center justify-between pb-3 border-b border-slate-200">
             <div>
               <h3 className="text-base font-bold text-slate-900">My Registered Vehicles</h3>
-              <p className="text-xs text-slate-500">Cars connected to your AutoServe account</p>
+              <p className="text-xs text-slate-500">Cars connected to your VV Cars account</p>
             </div>
             <Link
               to="/user/vehicles"

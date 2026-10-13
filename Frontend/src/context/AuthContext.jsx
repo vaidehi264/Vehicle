@@ -6,7 +6,7 @@ const AuthContext = createContext();
 export const DEMO_CREDENTIALS = {
   user: {
     name: "Rahul Sharma",
-    email: "user@autoserve.com",
+    email: "user@vvcars.com",
     password: "password123",
     role: "user",
     phone: "+91 98765 43210",
@@ -15,7 +15,7 @@ export const DEMO_CREDENTIALS = {
   },
   mechanic: {
     name: "Suresh Verma",
-    email: "mechanic@autoserve.com",
+    email: "mechanic@vvcars.com",
     password: "password123",
     role: "mechanic",
     phone: "+91 98450 12345",
@@ -27,7 +27,7 @@ export const DEMO_CREDENTIALS = {
   },
   admin: {
     name: "Amit Kumar",
-    email: "admin@autoserve.com",
+    email: "admin@vvcars.com",
     password: "password123",
     role: "admin",
     phone: "+91 99000 11223",
@@ -59,10 +59,13 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password, role) => {
+    const normalizeEmail = (e) => e?.toLowerCase().replace("@autoserve.com", "@vvcars.com");
+    const targetEmail = normalizeEmail(email);
+
     // Check against demo accounts first
     const demoKey = Object.keys(DEMO_CREDENTIALS).find(
       (k) =>
-        DEMO_CREDENTIALS[k].email.toLowerCase() === email.toLowerCase() &&
+        normalizeEmail(DEMO_CREDENTIALS[k].email) === targetEmail &&
         DEMO_CREDENTIALS[k].role === role
     );
 
@@ -79,7 +82,7 @@ export const AuthProvider = ({ children }) => {
     // Check registered users from storage
     const users = storageService.getUsers();
     const foundUser = users.find(
-      (u) => u.email.toLowerCase() === email.toLowerCase() && u.role === role
+      (u) => normalizeEmail(u.email) === targetEmail && u.role === role
     );
 
     if (foundUser) {
@@ -95,7 +98,7 @@ export const AuthProvider = ({ children }) => {
     if (role === "mechanic") {
       const mechanics = storageService.getMechanics();
       const foundMech = mechanics.find(
-        (m) => m.email.toLowerCase() === email.toLowerCase()
+        (m) => normalizeEmail(m.email) === targetEmail
       );
       if (foundMech) {
         const userObj = { ...foundMech, role: "mechanic" };

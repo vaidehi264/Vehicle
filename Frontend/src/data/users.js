@@ -2,7 +2,7 @@ export const initialUsers = [
   {
     id: "usr-001",
     name: "Rahul Sharma",
-    email: "user@autoserve.com",
+    email: "user@vvcars.com",
     role: "user",
     phone: "+91 98765 43210",
     address: "B-402, Green Glen Layout, Bellandur, Bangalore",
@@ -67,7 +67,7 @@ export const initialUsers = [
   {
     id: "mech-001",
     name: "Suresh Verma",
-    email: "mechanic@autoserve.com",
+    email: "mechanic@vvcars.com",
     role: "mechanic",
     phone: "+91 98450 12345",
     specialization: "Engine Diagnostics & Overhaul",
@@ -80,7 +80,7 @@ export const initialUsers = [
   {
     id: "adm-001",
     name: "Amit Kumar",
-    email: "admin@autoserve.com",
+    email: "admin@vvcars.com",
     role: "admin",
     phone: "+91 99000 11223",
     status: "active",

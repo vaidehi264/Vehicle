@@ -71,7 +71,7 @@ export const RegisterPage = () => {
         addToast(
           role === "mechanic"
             ? "Mechanic application registered! Awaiting admin verification."
-            : "Account created successfully! Welcome to AutoServe.",
+            : "Account created successfully! Welcome to VV Cars.",
           "success"
         );
         if (role === "mechanic") {

@@ -2,7 +2,7 @@ export const initialMechanics = [
   {
     id: "mech-001",
     name: "Suresh Verma",
-    email: "mechanic@autoserve.com",
+    email: "mechanic@vvcars.com",
     phone: "+91 98450 12345",
     specialization: "Engine Diagnostics & Overhaul",
     experience: "9 years",
@@ -23,7 +23,7 @@ export const initialMechanics = [
   {
     id: "mech-002",
     name: "Rajesh Patel",
-    email: "rajesh.patel@autoserve.com",
+    email: "rajesh.patel@vvcars.com",
     phone: "+91 98220 54321",
     specialization: "Brake Systems & Suspension",
     experience: "7 years",
@@ -44,7 +44,7 @@ export const initialMechanics = [
   {
     id: "mech-003",
     name: "Manoj Swaminathan",
-    email: "manoj.s@autoserve.com",
+    email: "manoj.s@vvcars.com",
     phone: "+91 97110 88990",
     specialization: "Electrical & Hybrid Systems",
     experience: "5 years",
@@ -65,7 +65,7 @@ export const initialMechanics = [
   {
     id: "mech-004",
     name: "Deepak Choudhary",
-    email: "deepak.c@autoserve.com",
+    email: "deepak.c@vvcars.com",
     phone: "+91 99345 11223",
     specialization: "Transmission & Drivetrain",
     experience: "8 years",
@@ -86,7 +86,7 @@ export const initialMechanics = [
   {
     id: "mech-005",
     name: "Farhan Siddiqui",
-    email: "farhan.s@autoserve.com",
+    email: "farhan.s@vvcars.com",
     phone: "+91 98877 66554",
     specialization: "Climate Control & AC Overhaul",
     experience: "4 years",

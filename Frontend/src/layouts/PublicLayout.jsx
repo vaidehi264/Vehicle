@@ -241,7 +241,7 @@ export const PublicLayout = () => {
               <h4 className="text-slate-900 font-bold text-sm tracking-wider uppercase mb-4">Support & Office</h4>
               <p className="text-sm flex items-start gap-2.5 text-slate-600">
                 <FaMapMarkerAlt className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
-                <span>AutoServe Innovation Park, Outer Ring Road, Bellandur, Bangalore 560103</span>
+                <span>VV Cars Innovation Park, Outer Ring Road, Bellandur, Bangalore 560103</span>
               </p>
               <p className="text-sm flex items-center gap-2.5 text-slate-600">
                 <FaPhoneAlt className="w-4 h-4 text-orange-600 shrink-0" />
@@ -249,13 +249,13 @@ export const PublicLayout = () => {
               </p>
               <p className="text-sm flex items-center gap-2.5 text-slate-600">
                 <FaEnvelope className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>support@autoserve.com</span>
+                <span>support@vvcars.com</span>
               </p>
             </div>
           </div>
 
           <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-            <p>© {new Date().getFullYear()} AutoServe Technologies Pvt. Ltd. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} VV Cars Technologies Pvt. Ltd. All rights reserved.</p>
             <div className="flex gap-6">
               <span className="hover:text-slate-700 cursor-pointer">Privacy Policy</span>
               <span className="hover:text-slate-700 cursor-pointer">Terms of Service</span>

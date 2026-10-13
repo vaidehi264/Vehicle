@@ -268,7 +268,7 @@ export const LandingPage = () => {
             Seamless Workflow
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            How AutoServe Works
+            How VV Cars Works
           </h2>
           <p className="text-sm text-slate-600">
             Automotive maintenance simplified into three easy digital stages.

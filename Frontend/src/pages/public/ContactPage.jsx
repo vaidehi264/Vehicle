@@ -69,7 +69,7 @@ export const ContactPage = () => {
           We Are Here For You
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
-          Contact AutoServe Support
+          Contact VV Cars Support
         </h1>
         <p className="text-sm sm:text-base text-slate-600">
           Have questions regarding an upcoming booking or want to partner your workshop? Reach out to our dedicated support desk.
@@ -101,8 +101,8 @@ export const ContactPage = () => {
               </div>
               <div>
                 <p className="text-xs text-slate-500 font-semibold uppercase">Email Inquiries</p>
-                <p className="text-sm font-bold text-slate-900 mt-0.5">support@autoserve.com</p>
-                <p className="text-xs text-slate-500">mechanic-partners@autoserve.com</p>
+                <p className="text-sm font-bold text-slate-900 mt-0.5">support@vvcars.com</p>
+                <p className="text-xs text-slate-500">mechanic-partners@vvcars.com</p>
               </div>
             </div>
 
@@ -113,7 +113,7 @@ export const ContactPage = () => {
               <div>
                 <p className="text-xs text-slate-500 font-semibold uppercase">Headquarters</p>
                 <p className="text-sm text-slate-700 mt-0.5 leading-relaxed">
-                  AutoServe Innovation Park, Ground Floor, Outer Ring Road, Bellandur, Bangalore, Karnataka 560103
+                  VV Cars Innovation Park, Ground Floor, Outer Ring Road, Bellandur, Bangalore, Karnataka 560103
                 </p>
               </div>
             </div>

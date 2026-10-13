@@ -20,7 +20,7 @@ export const MechanicProfile = () => {
 
   const [formData, setFormData] = useState({
     name: currentUser?.name || "Suresh Verma",
-    email: currentUser?.email || "mechanic@autoserve.com",
+    email: currentUser?.email || "mechanic@vvcars.com",
     phone: currentUser?.phone || "+91 98450 12345",
     specialization: currentUser?.specialization || "Engine Diagnostics & Overhaul",
     experience: currentUser?.experience || "9 years",

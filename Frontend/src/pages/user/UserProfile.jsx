@@ -20,7 +20,7 @@ export const UserProfile = () => {
 
   const [formData, setFormData] = useState({
     name: currentUser?.name || "Rahul Sharma",
-    email: currentUser?.email || "user@autoserve.com",
+    email: currentUser?.email || "user@vvcars.com",
     phone: currentUser?.phone || "+91 98765 43210",
     address: currentUser?.address || "B-402, Green Glen Layout, Bellandur, Bangalore",
     avatar: currentUser?.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200",

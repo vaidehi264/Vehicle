@@ -84,7 +84,7 @@ export const BookService = () => {
       id: newId,
       userId: currentUser?.id || "usr-001",
       customerName: currentUser?.name || "Rahul Sharma",
-      customerEmail: currentUser?.email || "user@autoserve.com",
+      customerEmail: currentUser?.email || "user@vvcars.com",
       customerPhone: currentUser?.phone || "+91 98765 43210",
       vehicleId: selectedVehicle.id,
       vehicleDetails: {

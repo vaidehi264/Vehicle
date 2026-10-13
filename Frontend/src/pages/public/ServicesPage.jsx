@@ -213,7 +213,7 @@ export const ServicesPage = () => {
 
             <div className="p-3 rounded-xl bg-orange-50 border border-orange-200 text-xs text-orange-800 flex items-center gap-2">
               <FaShieldAlt className="w-4 h-4 shrink-0 text-orange-600" />
-              <span>Includes 1000 km / 1-Month AutoServe Quality Warranty on parts and labor.</span>
+              <span>Includes 1000 km / 1-Month VV Cars Quality Warranty on parts and labor.</span>
             </div>
 
             <div className="pt-4 flex justify-end gap-3 border-t border-slate-200">

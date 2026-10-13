@@ -22,7 +22,7 @@ export const AboutPage = () => {
           Revolutionizing Multi-Brand Automotive Service
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
-          AutoServe was created to solve the two biggest complaints in car servicing: lack of transparent pricing and inconsistent repair craftsmanship.
+          VV Cars was created to solve the two biggest complaints in car servicing: lack of transparent pricing and inconsistent repair craftsmanship.
         </p>
       </div>
 
@@ -77,7 +77,7 @@ export const AboutPage = () => {
               Nationwide Multi-City Garage Infrastructure
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              With service centers strategically positioned across Bangalore, Mumbai, Pune, Hyderabad, and Delhi NCR, AutoServe ensures fast doorstep vehicle pickup and guaranteed bay availability.
+              With service centers strategically positioned across Bangalore, Mumbai, Pune, Hyderabad, and Delhi NCR, VV Cars ensures fast doorstep vehicle pickup and guaranteed bay availability.
             </p>
             <div className="flex gap-4 pt-2">
               <Link

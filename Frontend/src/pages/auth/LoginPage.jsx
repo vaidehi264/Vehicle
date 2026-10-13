@@ -19,7 +19,7 @@ export const LoginPage = () => {
   const location = useLocation();
 
   const [role, setRole] = useState("user"); // "user" | "mechanic" | "admin"
-  const [email, setEmail] = useState("user@autoserve.com");
+  const [email, setEmail] = useState("user@vvcars.com");
   const [password, setPassword] = useState("password123");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -28,11 +28,11 @@ export const LoginPage = () => {
     setRole(newRole);
     setError("");
     if (newRole === "user") {
-      setEmail("user@autoserve.com");
+      setEmail("user@vvcars.com");
     } else if (newRole === "mechanic") {
-      setEmail("mechanic@autoserve.com");
+      setEmail("mechanic@vvcars.com");
     } else if (newRole === "admin") {
-      setEmail("admin@autoserve.com");
+      setEmail("admin@vvcars.com");
     }
     setPassword("password123");
   };

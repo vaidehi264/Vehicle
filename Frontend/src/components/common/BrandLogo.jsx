@@ -25,7 +25,7 @@ export const BrandLogo = ({ size = "md", link = "/", showSubtitle = true }) => {
               isSm ? "text-base" : isLg ? "text-2xl" : "text-xl"
             }`}
           >
-            Auto<span className="text-orange-600">Serve</span>
+            VV <span className="text-orange-600">Cars</span>
           </span>
         </div>
         {showSubtitle && (

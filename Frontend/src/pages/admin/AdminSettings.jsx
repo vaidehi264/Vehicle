@@ -21,7 +21,7 @@ export const AdminSettings = () => {
 
   const [formData, setFormData] = useState({
     name: currentUser?.name || "Amit Kumar",
-    email: currentUser?.email || "admin@autoserve.com",
+    email: currentUser?.email || "admin@vvcars.com",
     phone: currentUser?.phone || "+91 99000 11223",
   });
 

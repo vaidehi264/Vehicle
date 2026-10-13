@@ -38,6 +38,14 @@ export const initializeStorage = () => {
     if (!localStorage.getItem(STORAGE_KEYS.REVIEWS)) {
       localStorage.setItem(STORAGE_KEYS.REVIEWS, JSON.stringify(initialReviews));
     }
+
+    // Auto-migrate cached local data from @autoserve.com to @vvcars.com
+    [STORAGE_KEYS.USERS, STORAGE_KEYS.MECHANICS, STORAGE_KEYS.BOOKINGS, STORAGE_KEYS.AUTH].forEach((key) => {
+      const data = localStorage.getItem(key);
+      if (data && data.includes("@autoserve.com")) {
+        localStorage.setItem(key, data.replace(/@autoserve\.com/g, "@vvcars.com"));
+      }
+    });
   } catch (error) {
     console.error("Failed to initialize localStorage mock data:", error);
   }
