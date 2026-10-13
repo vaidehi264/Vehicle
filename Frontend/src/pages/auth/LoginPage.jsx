@@ -32,7 +32,7 @@ export const LoginPage = () => {
     } else if (newRole === "mechanic") {
       setEmail("mechanic@vvcars.com");
     } else if (newRole === "admin") {
-      setEmail("admin@vvcars.com");
+      setEmail("vvcarservice@gmail.com");
     }
     setPassword("password123");
   };

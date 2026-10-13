@@ -37,11 +37,14 @@ export const PublicLayout = () => {
       <div className="bg-slate-100 border-b border-slate-200 text-xs text-slate-600 py-2 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-orange-600 font-semibold">
-              <FaPhoneAlt className="w-3 h-3" /> 24/7 Breakdown Hotline: 1800-419-AUTO
-            </span>
+            <a href="tel:+917845963210" className="flex items-center gap-1.5 text-orange-600 font-semibold hover:underline">
+              <FaPhoneAlt className="w-3 h-3" /> +91 7845963210
+            </a>
+            <a href="mailto:vvcarservice@gmail.com" className="hidden sm:flex items-center gap-1.5 text-slate-600 hover:text-orange-600 font-medium">
+              <FaEnvelope className="w-3 h-3 text-orange-600" /> vvcarservice@gmail.com
+            </a>
             <span className="hidden md:flex items-center gap-1.5 text-slate-500">
-              <FaMapMarkerAlt className="w-3 h-3 text-slate-400" /> Over 120+ Verified Garages Across India
+              <FaMapMarkerAlt className="w-3 h-3 text-slate-400" /> Gift City, Gandhinagar
             </span>
           </div>
           <div className="flex items-center gap-4">
@@ -241,15 +244,15 @@ export const PublicLayout = () => {
               <h4 className="text-slate-900 font-bold text-sm tracking-wider uppercase mb-4">Support & Office</h4>
               <p className="text-sm flex items-start gap-2.5 text-slate-600">
                 <FaMapMarkerAlt className="w-4 h-4 text-orange-600 shrink-0 mt-1" />
-                <span>VV Cars Innovation Park, Outer Ring Road, Bellandur, Bangalore 560103</span>
+                <span>Gift City, Gandhinagar, Gujrat - 382000</span>
               </p>
               <p className="text-sm flex items-center gap-2.5 text-slate-600">
                 <FaPhoneAlt className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>+91 (080) 4120-7799</span>
+                <a href="tel:+917845963210" className="hover:text-orange-600 font-medium">+91 7845963210</a>
               </p>
               <p className="text-sm flex items-center gap-2.5 text-slate-600">
                 <FaEnvelope className="w-4 h-4 text-orange-600 shrink-0" />
-                <span>support@vvcars.com</span>
+                <a href="mailto:vvcarservice@gmail.com" className="hover:text-orange-600 font-medium">vvcarservice@gmail.com</a>
               </p>
             </div>
           </div>

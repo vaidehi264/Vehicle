@@ -90,8 +90,10 @@ export const ContactPage = () => {
               </div>
               <div>
                 <p className="text-xs text-slate-500 font-semibold uppercase">Customer Care & Breakdown Hotline</p>
-                <p className="text-sm font-bold text-slate-900 mt-0.5">1800-419-AUTO (Toll Free)</p>
-                <p className="text-xs text-slate-500">+91 (080) 4120-7799</p>
+                <a href="tel:+917845963210" className="text-sm font-bold text-slate-900 mt-0.5 hover:text-orange-600 block">
+                  +91 7845963210
+                </a>
+                <p className="text-xs text-slate-500">24/7 Breakdown Assistance</p>
               </div>
             </div>
 
@@ -101,8 +103,10 @@ export const ContactPage = () => {
               </div>
               <div>
                 <p className="text-xs text-slate-500 font-semibold uppercase">Email Inquiries</p>
-                <p className="text-sm font-bold text-slate-900 mt-0.5">support@vvcars.com</p>
-                <p className="text-xs text-slate-500">mechanic-partners@vvcars.com</p>
+                <a href="mailto:vvcarservice@gmail.com" className="text-sm font-bold text-slate-900 mt-0.5 hover:text-orange-600 block">
+                  vvcarservice@gmail.com
+                </a>
+                <p className="text-xs text-slate-500">Official Support & Service Inquiries</p>
               </div>
             </div>
 
@@ -113,7 +117,7 @@ export const ContactPage = () => {
               <div>
                 <p className="text-xs text-slate-500 font-semibold uppercase">Headquarters</p>
                 <p className="text-sm text-slate-700 mt-0.5 leading-relaxed">
-                  VV Cars Innovation Park, Ground Floor, Outer Ring Road, Bellandur, Bangalore, Karnataka 560103
+                  Gift City, Gandhinagar, Gujrat - 382000
                 </p>
               </div>
             </div>
@@ -170,7 +174,7 @@ export const ContactPage = () => {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 7845963210"
                     className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                   />
                 </div>

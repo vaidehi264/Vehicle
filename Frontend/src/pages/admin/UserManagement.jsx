@@ -338,7 +338,7 @@ export const UserManagement = () => {
               <span className="text-slate-500 flex items-center gap-1.5 mb-1">
                 <FaMapMarkerAlt className="text-orange-600" /> Registered Garage Address
               </span>
-              <p className="text-slate-700">{selectedUser.address || "Bengaluru, Karnataka, India"}</p>
+              <p className="text-slate-700">{selectedUser.address || "Gift City, Gandhinagar, Gujrat - 382000"}</p>
             </div>
 
             <div className="pt-3 border-t border-slate-200 flex justify-end">
@@ -392,7 +392,7 @@ export const UserManagement = () => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+91 98765 43210"
+                placeholder="+91 7845963210"
                 className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>

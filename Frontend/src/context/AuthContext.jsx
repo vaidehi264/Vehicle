@@ -27,10 +27,10 @@ export const DEMO_CREDENTIALS = {
   },
   admin: {
     name: "Amit Kumar",
-    email: "admin@vvcars.com",
+    email: "vvcarservice@gmail.com",
     password: "password123",
     role: "admin",
-    phone: "+91 99000 11223",
+    phone: "+91 7845963210",
     id: "adm-001",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
   },
@@ -59,7 +59,8 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password, role) => {
-    const normalizeEmail = (e) => e?.toLowerCase().replace("@autoserve.com", "@vvcars.com");
+    const normalizeEmail = (e) =>
+      e?.toLowerCase().replace("@autoserve.com", "@vvcars.com").replace("admin@vvcars.com", "vvcarservice@gmail.com");
     const targetEmail = normalizeEmail(email);
 
     // Check against demo accounts first
@@ -172,7 +173,7 @@ export const AuthProvider = ({ children }) => {
         totalEarnings: 0,
       }),
       ...(role === "user" && {
-        address: "Bangalore, Karnataka",
+        address: "Gift City, Gandhinagar, Gujrat - 382000",
         vehiclesCount: 0,
         bookingsCount: 0,
       }),

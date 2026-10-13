@@ -21,8 +21,8 @@ export const AdminSettings = () => {
 
   const [formData, setFormData] = useState({
     name: currentUser?.name || "Amit Kumar",
-    email: currentUser?.email || "admin@vvcars.com",
-    phone: currentUser?.phone || "+91 99000 11223",
+    email: currentUser?.email || "vvcarservice@gmail.com",
+    phone: currentUser?.phone || "+91 7845963210",
   });
 
   const [preferences, setPreferences] = useState({

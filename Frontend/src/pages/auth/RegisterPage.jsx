@@ -191,7 +191,7 @@ export const RegisterPage = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+91 98765 00000"
+                  placeholder="+91 7845963210"
                   required
                   className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl pl-10 pr-4 py-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />

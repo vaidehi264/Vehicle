@@ -46,6 +46,17 @@ export const initializeStorage = () => {
         localStorage.setItem(key, data.replace(/@autoserve\.com/g, "@vvcars.com"));
       }
     });
+
+    // Auto-migrate cached user address
+    [STORAGE_KEYS.USERS, STORAGE_KEYS.AUTH].forEach((key) => {
+      const data = localStorage.getItem(key);
+      if (data && (data.includes("Bellandur") || data.includes("Green Glen"))) {
+        localStorage.setItem(key, data.replace(/B-402, Green Glen Layout, Bellandur, Bangalore/g, "Gift City, Gandhinagar, Gujrat - 382000"));
+      }
+      if (data && data.includes("admin@vvcars.com")) {
+        localStorage.setItem(key, data.replace(/admin@vvcars\.com/g, "vvcarservice@gmail.com").replace(/\+91 99000 11223/g, "+91 7845963210"));
+      }
+    });
   } catch (error) {
     console.error("Failed to initialize localStorage mock data:", error);
   }

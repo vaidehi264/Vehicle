@@ -77,7 +77,7 @@ export const AboutPage = () => {
               Nationwide Multi-City Garage Infrastructure
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              With service centers strategically positioned across Bangalore, Mumbai, Pune, Hyderabad, and Delhi NCR, VV Cars ensures fast doorstep vehicle pickup and guaranteed bay availability.
+              With service centers strategically positioned across Gandhinagar, Ahmedabad, Mumbai, Pune, Hyderabad, and Delhi NCR, VV Cars ensures fast doorstep vehicle pickup and guaranteed bay availability.
             </p>
             <div className="flex gap-4 pt-2">
               <Link
