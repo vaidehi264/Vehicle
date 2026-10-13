@@ -9,6 +9,7 @@ import {
   FaCalendarAlt,
   FaArrowRight,
   FaPlus,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 export const BookService = () => {
@@ -131,18 +132,18 @@ export const BookService = () => {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Schedule Vehicle Service
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Choose your vehicle, select a certified service package, pick a time slot, and confirm upfront transparent pricing.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-500/15 text-orange-400 border border-orange-500/30">
+          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 border border-orange-200">
             Step {step} of 3
           </span>
         </div>
@@ -152,14 +153,14 @@ export const BookService = () => {
       {step === 1 && (
         <form onSubmit={handleReview} className="space-y-6">
           {/* 1. Vehicle Selection */}
-          <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                <FaCar className="text-orange-400" /> 1. Select Registered Vehicle
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <FaCar className="text-orange-600" /> 1. Select Registered Vehicle
               </h3>
               <Link
                 to="/user/vehicles"
-                className="text-xs font-bold text-orange-400 hover:text-orange-300 flex items-center gap-1"
+                className="text-xs font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1"
               >
                 <FaPlus className="w-2.5 h-2.5" /> Add Another Car
               </Link>
@@ -175,34 +176,34 @@ export const BookService = () => {
                       onClick={() => setSelectedVehicleId(veh.id)}
                       className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
                         isSelected
-                          ? "bg-orange-500/15 border-orange-500 shadow-md shadow-orange-500/10"
-                          : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
+                          ? "bg-orange-50 border-orange-500 shadow-sm shadow-orange-500/10"
+                          : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
                       }`}
                     >
                       <img
                         src={veh.image || "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=100"}
                         alt={veh.model}
-                        className="w-12 h-12 rounded-xl object-cover border border-slate-700 shrink-0"
+                        className="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0"
                       />
                       <div className="truncate">
-                        <p className="font-bold text-white text-xs truncate">
+                        <p className="font-bold text-slate-900 text-xs truncate">
                           {veh.make} {veh.model}
                         </p>
-                        <p className="font-mono text-[11px] font-bold text-orange-400">
+                        <p className="font-mono text-[11px] font-bold text-orange-600">
                           {veh.registrationNumber}
                         </p>
-                        <p className="text-[10px] text-slate-400">{veh.fuelType} • {veh.year}</p>
+                        <p className="text-[10px] text-slate-500">{veh.fuelType} • {veh.year}</p>
                       </div>
                     </div>
                   );
                 })}
               </div>
             ) : (
-              <div className="p-4 bg-slate-900 rounded-2xl text-center space-y-2">
-                <p className="text-xs text-slate-400">No vehicles found in your garage.</p>
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-center space-y-2">
+                <p className="text-xs text-slate-500">No vehicles found in your garage.</p>
                 <Link
                   to="/user/vehicles"
-                  className="inline-block px-4 py-2 bg-orange-600 text-white text-xs font-bold rounded-xl"
+                  className="inline-block px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold rounded-xl shadow-sm"
                 >
                   Register a Vehicle First
                 </Link>
@@ -211,9 +212,9 @@ export const BookService = () => {
           </div>
 
           {/* 2. Service Package Selection */}
-          <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-            <h3 className="text-sm font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-              <FaWrench className="text-orange-400" /> 2. Choose Service Package
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+              <FaWrench className="text-orange-600" /> 2. Choose Service Package
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -225,28 +226,28 @@ export const BookService = () => {
                     onClick={() => setSelectedServiceId(srv.id)}
                     className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected
-                        ? "bg-orange-500/15 border-orange-500 shadow-md shadow-orange-500/10"
-                        : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
+                        ? "bg-orange-50 border-orange-500 shadow-sm shadow-orange-500/10"
+                        : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] font-bold uppercase text-orange-400">
+                        <span className="text-[10px] font-bold uppercase text-orange-600">
                           {srv.category}
                         </span>
-                        <span className="text-xs font-bold text-white">
+                        <span className="text-xs font-bold text-slate-900">
                           ₹{srv.price.toLocaleString()}
                         </span>
                       </div>
-                      <h4 className="text-xs font-bold text-white mb-1">{srv.name}</h4>
-                      <p className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                      <h4 className="text-xs font-bold text-slate-900 mb-1">{srv.name}</h4>
+                      <p className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed">
                         {srv.description}
                       </p>
                     </div>
 
-                    <div className="pt-2 mt-2 border-t border-slate-800/80 flex justify-between text-[10px] text-slate-400">
+                    <div className="pt-2 mt-2 border-t border-slate-200 flex justify-between text-[10px] text-slate-500">
                       <span>Est: {srv.estimatedDuration}</span>
-                      <span className="text-emerald-400 font-semibold">1000 km Warranty</span>
+                      <span className="text-emerald-600 font-semibold">1000 km Warranty</span>
                     </div>
                   </div>
                 );
@@ -255,14 +256,14 @@ export const BookService = () => {
           </div>
 
           {/* 3. Date, Time & Logistics */}
-          <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-            <h3 className="text-sm font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-              <FaCalendarAlt className="text-orange-400" /> 3. Schedule & Pickup Preferences
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+              <FaCalendarAlt className="text-orange-600" /> 3. Schedule & Pickup Preferences
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                   Preferred Date
                 </label>
                 <input
@@ -270,18 +271,18 @@ export const BookService = () => {
                   required
                   value={bookingDate}
                   onChange={(e) => setBookingDate(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                   Time Slot
                 </label>
                 <select
                   value={timeSlot}
                   onChange={(e) => setTimeSlot(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 >
                   {timeSlots.map((ts) => (
                     <option key={ts} value={ts}>
@@ -293,7 +294,7 @@ export const BookService = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Logistics & Handover Preference
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -306,19 +307,19 @@ export const BookService = () => {
                     onClick={() => setPickupType(opt.id)}
                     className={`p-3 rounded-2xl border cursor-pointer transition-all ${
                       pickupType === opt.id
-                        ? "bg-orange-500/15 border-orange-500"
-                        : "bg-slate-900/60 border-slate-800"
+                        ? "bg-orange-50 border-orange-500 text-orange-950 shadow-sm"
+                        : "bg-slate-50 border-slate-200 hover:bg-slate-100"
                     }`}
                   >
-                    <p className="font-bold text-white text-xs">{opt.id}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">{opt.desc}</p>
+                    <p className="font-bold text-slate-900 text-xs">{opt.id}</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">{opt.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Specific Vehicle Symptoms or Problems (Optional)
               </label>
               <textarea
@@ -326,7 +327,7 @@ export const BookService = () => {
                 value={problemDescription}
                 onChange={(e) => setProblemDescription(e.target.value)}
                 placeholder="e.g. Squeaking noise while turning, AC cooling low in afternoon, brake pedal feels spongy..."
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll transition-all"
               />
             </div>
           </div>
@@ -346,64 +347,64 @@ export const BookService = () => {
 
       {/* Step 2: Review Booking Screen */}
       {step === 2 && (
-        <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-          <div className="border-b border-slate-800 pb-3">
-            <h3 className="text-lg font-bold text-white">Review Service Booking Details</h3>
-            <p className="text-xs text-slate-400">Please verify your booking parameters before confirming.</p>
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm shadow-slate-200/50 space-y-6">
+          <div className="border-b border-slate-200 pb-3">
+            <h3 className="text-lg font-bold text-slate-900">Review Service Booking Details</h3>
+            <p className="text-xs text-slate-500">Please verify your booking parameters before confirming.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <span className="text-slate-400 font-bold block">Vehicle</span>
-              <p className="text-white font-bold text-sm">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+              <span className="text-slate-500 font-bold block">Vehicle</span>
+              <p className="text-slate-900 font-bold text-sm">
                 {selectedVehicle?.make} {selectedVehicle?.model} ({selectedVehicle?.year})
               </p>
-              <p className="font-mono text-orange-400 font-bold">
+              <p className="font-mono text-orange-600 font-bold">
                 {selectedVehicle?.registrationNumber}
               </p>
-              <p className="text-slate-400">{selectedVehicle?.fuelType}</p>
+              <p className="text-slate-500">{selectedVehicle?.fuelType}</p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <span className="text-slate-400 font-bold block">Selected Package</span>
-              <p className="text-white font-bold text-sm">{selectedService?.name}</p>
-              <p className="text-slate-400">Duration: {selectedService?.estimatedDuration}</p>
-              <p className="text-2xl font-black text-orange-400">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+              <span className="text-slate-500 font-bold block">Selected Package</span>
+              <p className="text-slate-900 font-bold text-sm">{selectedService?.name}</p>
+              <p className="text-slate-500">Duration: {selectedService?.estimatedDuration}</p>
+              <p className="text-2xl font-black text-orange-600">
                 ₹{selectedService?.price.toLocaleString()}
               </p>
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs space-y-2">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-2">
             <div className="flex justify-between">
-              <span className="text-slate-400">Scheduled Date & Slot:</span>
-              <span className="text-white font-semibold">{bookingDate} • {timeSlot}</span>
+              <span className="text-slate-500">Scheduled Date & Slot:</span>
+              <span className="text-slate-900 font-semibold">{bookingDate} • {timeSlot}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Handover Mode:</span>
-              <span className="text-emerald-400 font-semibold">{pickupType}</span>
+              <span className="text-slate-500">Handover Mode:</span>
+              <span className="text-emerald-600 font-semibold">{pickupType}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Customer Name:</span>
-              <span className="text-white font-semibold">{currentUser?.name || "Rahul Sharma"}</span>
+              <span className="text-slate-500">Customer Name:</span>
+              <span className="text-slate-900 font-semibold">{currentUser?.name || "Rahul Sharma"}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Payment Option:</span>
-              <span className="text-slate-200 font-semibold">Pay on Delivery / Completion</span>
+              <span className="text-slate-500">Payment Option:</span>
+              <span className="text-slate-700 font-semibold">Pay on Delivery / Completion</span>
             </div>
           </div>
 
           {problemDescription && (
-            <div className="p-3.5 rounded-2xl bg-slate-900/40 border border-slate-800 text-xs">
-              <span className="text-slate-400 font-semibold block mb-1">Reported Notes:</span>
-              <p className="text-slate-300 italic">{problemDescription}</p>
+            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-slate-500 font-semibold block mb-1">Reported Notes:</span>
+              <p className="text-slate-700 italic">{problemDescription}</p>
             </div>
           )}
 
-          <div className="pt-4 border-t border-slate-800 flex justify-between items-center">
+          <div className="pt-4 border-t border-slate-200 flex justify-between items-center">
             <button
               onClick={() => setStep(1)}
-              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl cursor-pointer"
+              className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
             >
               ← Back to Edit
             </button>
@@ -419,36 +420,36 @@ export const BookService = () => {
 
       {/* Step 3: Booking Confirmation Screen */}
       {step === 3 && (
-        <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-8 sm:p-12 shadow-2xl text-center space-y-6">
-          <div className="w-20 h-20 mx-auto rounded-3xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shadow-xl shadow-emerald-500/20">
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-sm text-center space-y-6">
+          <div className="w-20 h-20 mx-auto rounded-3xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center shadow-lg shadow-emerald-500/10">
             <FaCheckCircle className="w-10 h-10" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">
               Booking Confirmed
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
               Service Appointment Scheduled!
             </h2>
-            <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
               Your vehicle service booking has been registered with ID{" "}
-              <strong className="text-orange-400 font-mono text-sm">{confirmedBookingId}</strong>. A master technician is being allocated.
+              <strong className="text-orange-600 font-mono text-sm">{confirmedBookingId}</strong>. A master technician is being allocated.
             </p>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 max-w-md mx-auto text-xs space-y-2">
-            <div className="flex justify-between text-slate-300">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 max-w-md mx-auto text-xs space-y-2">
+            <div className="flex justify-between text-slate-600">
               <span>Vehicle:</span>
-              <span className="font-bold text-white">{selectedVehicle?.make} {selectedVehicle?.model}</span>
+              <span className="font-bold text-slate-900">{selectedVehicle?.make} {selectedVehicle?.model}</span>
             </div>
-            <div className="flex justify-between text-slate-300">
+            <div className="flex justify-between text-slate-600">
               <span>Date & Time:</span>
-              <span className="font-semibold text-white">{bookingDate} • {timeSlot}</span>
+              <span className="font-semibold text-slate-900">{bookingDate} • {timeSlot}</span>
             </div>
-            <div className="flex justify-between text-slate-300">
+            <div className="flex justify-between text-slate-600">
               <span>Total Estimated Fee:</span>
-              <span className="font-extrabold text-orange-400 text-sm">₹{selectedService?.price.toLocaleString()}</span>
+              <span className="font-extrabold text-orange-600 text-sm">₹{selectedService?.price.toLocaleString()}</span>
             </div>
           </div>
 
@@ -462,7 +463,7 @@ export const BookService = () => {
             </button>
             <Link
               to="/user/bookings"
-              className="px-5 py-3 bg-slate-800 hover:bg-slate-750 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition-colors"
+              className="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 transition-colors shadow-sm"
             >
               View My Bookings
             </Link>

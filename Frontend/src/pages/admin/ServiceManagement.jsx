@@ -136,12 +136,12 @@ export const ServiceManagement = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Service Catalog Management
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Configure vehicle maintenance packages, inclusions, labor duration, and transparent pricing.
           </p>
         </div>
@@ -156,28 +156,28 @@ export const ServiceManagement = () => {
       </div>
 
       {/* Filter / Search Bar */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-lg">
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-sm shadow-slate-200/50">
         <div className="relative w-full sm:w-80">
-          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-3.5 h-3.5" />
+          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-3.5 h-3.5" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search service name, description..."
-            className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-orange-500"
+            className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl pl-9 pr-3 py-2.5 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
           />
         </div>
 
         <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-          <span className="text-xs text-slate-400 font-semibold mr-1">Category:</span>
+          <span className="text-xs text-slate-500 font-semibold mr-1">Category:</span>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setCategoryFilter(cat)}
               className={`px-3 py-1.5 text-xs font-semibold rounded-xl border capitalize transition-all cursor-pointer ${
                 categoryFilter === cat
-                  ? "bg-orange-500 text-white border-orange-500"
-                  : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                  ? "bg-orange-600 text-white border-orange-600 shadow-sm"
+                  : "bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               {cat}
@@ -191,64 +191,64 @@ export const ServiceManagement = () => {
         {filteredServices.map((service) => (
           <div
             key={service.id}
-            className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 flex flex-col justify-between shadow-xl relative group hover:border-orange-500/40 transition-all"
+            className="bg-white border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md shadow-slate-200/40 relative group hover:border-orange-500/50 transition-all"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-orange-50 text-orange-700 border border-orange-200">
                   {service.category}
                 </span>
                 <Badge size="xs">{service.status || "Active"}</Badge>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-2">{service.name}</h3>
-              <p className="text-xs text-slate-400 mb-4 leading-relaxed line-clamp-3">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{service.name}</h3>
+              <p className="text-xs text-slate-600 mb-4 leading-relaxed line-clamp-3">
                 {service.description}
               </p>
 
-              <div className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800/80 space-y-2 mb-4 text-xs">
-                <div className="flex justify-between items-center text-slate-400">
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 mb-4 text-xs">
+                <div className="flex justify-between items-center text-slate-500">
                   <span className="flex items-center gap-1.5">
-                    <FaClock className="text-orange-400" /> Duration:
+                    <FaClock className="text-orange-600" /> Duration:
                   </span>
-                  <span className="font-semibold text-white">{service.estimatedDuration}</span>
+                  <span className="font-semibold text-slate-800">{service.estimatedDuration}</span>
                 </div>
-                <div className="flex justify-between items-center text-slate-400">
+                <div className="flex justify-between items-center text-slate-500">
                   <span>Price:</span>
-                  <span className="text-base font-extrabold text-orange-400">
+                  <span className="text-base font-extrabold text-orange-600">
                     ₹{service.price.toLocaleString()}
                   </span>
                 </div>
               </div>
 
               {/* Inclusions summary */}
-              <div className="space-y-1 mb-4 text-[11px] text-slate-300">
-                <p className="font-bold text-slate-400 uppercase text-[10px] tracking-wider mb-1.5">
+              <div className="space-y-1 mb-4 text-[11px] text-slate-700">
+                <p className="font-bold text-slate-500 uppercase text-[10px] tracking-wider mb-1.5">
                   Checklist ({service.inclusions?.length || 0} items)
                 </p>
                 {service.inclusions?.slice(0, 3).map((inc, i) => (
                   <div key={i} className="flex items-center gap-1.5 truncate">
-                    <FaCheckCircle className="text-emerald-400 w-3 h-3 shrink-0" />
+                    <FaCheckCircle className="text-emerald-500 w-3 h-3 shrink-0" />
                     <span className="truncate">{inc}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
               <span className="text-[11px] text-slate-500 font-mono">{service.id}</span>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => openEditModal(service)}
                   title="Edit Package"
-                  className="px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-750 rounded-xl transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-xl transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <FaEdit className="w-3 h-3 text-orange-400" /> Edit
+                  <FaEdit className="w-3 h-3 text-orange-600" /> Edit
                 </button>
                 <button
                   onClick={() => handleDeleteService(service)}
                   title="Delete Package"
-                  className="p-2 text-rose-400 hover:text-rose-300 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 rounded-xl transition-colors cursor-pointer"
+                  className="p-2 text-rose-700 hover:text-rose-800 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition-colors cursor-pointer"
                 >
                   <FaTrash className="w-3 h-3" />
                 </button>
@@ -276,24 +276,24 @@ export const ServiceManagement = () => {
         >
           <form onSubmit={handleSaveService} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Package Title *</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Package Title *</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Full Synthetic Engine Tuneup"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Category</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Category</label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 >
                   <option value="General Maintenance">General Maintenance</option>
                   <option value="Brakes & Safety">Brakes & Safety</option>
@@ -305,35 +305,35 @@ export const ServiceManagement = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Standard Price (₹) *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Standard Price (₹) *</label>
                 <input
                   type="number"
                   required
                   value={formData.price}
                   onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Estimated Duration</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Estimated Duration</label>
                 <input
                   type="text"
                   value={formData.estimatedDuration}
                   onChange={(e) => setFormData({ ...formData, estimatedDuration: e.target.value })}
                   placeholder="e.g. 2 - 3 Hours"
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Availability Status</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Availability Status</label>
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 >
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
@@ -342,19 +342,19 @@ export const ServiceManagement = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Description *</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Description *</label>
               <textarea
                 required
                 rows={3}
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Comprehensive description of parts and labor included..."
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Included Checklist Items (one item per line)
               </label>
               <textarea
@@ -362,15 +362,15 @@ export const ServiceManagement = () => {
                 value={formData.inclusions}
                 onChange={(e) => setFormData({ ...formData, inclusions: e.target.value })}
                 placeholder="Synthetic oil replacement&#10;Oil filter change&#10;Brake fluid check"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll font-mono"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll font-mono transition-all"
               />
             </div>
 
-            <div className="pt-4 border-t border-slate-800 flex justify-end gap-2">
+            <div className="pt-4 border-t border-slate-200 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setIsAddEditOpen(false)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
               >
                 Cancel
               </button>
@@ -389,4 +389,3 @@ export const ServiceManagement = () => {
 };
 
 export default ServiceManagement;
-

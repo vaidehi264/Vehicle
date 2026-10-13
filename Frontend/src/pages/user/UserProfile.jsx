@@ -53,19 +53,19 @@ export const UserProfile = () => {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Account Profile & Settings
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Manage your personal profile, doorstep vehicle pickup address, and communication numbers.
           </p>
         </div>
 
         <button
           onClick={handleLogout}
-          className="px-4 py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold rounded-xl transition-colors flex items-center gap-2 cursor-pointer"
+          className="px-4 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 text-xs font-bold rounded-xl transition-colors flex items-center gap-2 cursor-pointer"
         >
           <FaSignOutAlt className="w-3.5 h-3.5" />
           <span>Exit Session</span>
@@ -73,9 +73,9 @@ export const UserProfile = () => {
       </div>
 
       {/* Profile Form Card */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm shadow-slate-200/50 space-y-6">
         {/* Avatar Upload */}
-        <div className="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-200">
           <div className="relative group">
             <img
               src={formData.avatar}
@@ -95,57 +95,57 @@ export const UserProfile = () => {
           </div>
 
           <div className="text-center sm:text-left space-y-1">
-            <h3 className="text-lg font-bold text-white">{formData.name}</h3>
-            <p className="text-xs text-orange-400 font-semibold">{formData.email}</p>
-            <p className="text-[11px] text-slate-400">Customer ID: {currentUser?.id || "usr-001"}</p>
-            <p className="text-[10px] text-slate-500">Click avatar image to upload local photo</p>
+            <h3 className="text-lg font-bold text-slate-900">{formData.name}</h3>
+            <p className="text-xs text-orange-600 font-semibold">{formData.email}</p>
+            <p className="text-[11px] text-slate-500">Customer ID: {currentUser?.id || "usr-001"}</p>
+            <p className="text-[10px] text-slate-400">Click avatar image to upload local photo</p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Full Name</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 focus:bg-white"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email Address</label>
               <input
                 type="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 focus:bg-white"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">Phone Number</label>
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone Number</label>
             <input
               type="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 focus:bg-white"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Default Doorstep Pickup / Residence Address
             </label>
             <textarea
               rows={3}
               value={formData.address}
               onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 focus:bg-white custom-scroll"
             />
           </div>
 
@@ -165,4 +165,3 @@ export const UserProfile = () => {
 };
 
 export default UserProfile;
-

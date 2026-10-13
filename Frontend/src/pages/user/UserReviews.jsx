@@ -90,37 +90,37 @@ export const UserReviews = () => {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Reviews & Mechanic Ratings
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Rate completed garage services, evaluate technician craftsmanship, and help our community motorists.
           </p>
         </div>
 
-        <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1.5">
-          <FaStar className="w-3 h-3" /> Verified Customer Feedback
+        <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1.5">
+          <FaStar className="w-3 h-3 text-amber-500" /> Verified Customer Feedback
         </span>
       </div>
 
       {/* Review Submission Form */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-        <h3 className="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-          <FaCommentAlt className="text-orange-400" /> Share Your Service Experience
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm shadow-slate-200/50 space-y-6">
+        <h3 className="text-base font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+          <FaCommentAlt className="text-orange-600" /> Share Your Service Experience
         </h3>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Select Completed Service Booking
             </label>
             {completedBookings.length > 0 ? (
               <select
                 value={selectedBookingId}
                 onChange={(e) => setSelectedBookingId(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 font-mono"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 font-mono focus:bg-white"
               >
                 {completedBookings.map((b) => (
                   <option key={b.id} value={b.id}>
@@ -129,7 +129,7 @@ export const UserReviews = () => {
                 ))}
               </select>
             ) : (
-              <p className="text-xs text-slate-400 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+              <p className="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200">
                 You currently have no completed services. (Using default completed booking sample)
               </p>
             )}
@@ -137,7 +137,7 @@ export const UserReviews = () => {
 
           {/* Star Rating Interactive Selector */}
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-2">
+            <label className="block text-xs font-semibold text-slate-700 mb-2">
               Technician Star Rating (1 - 5 Stars)
             </label>
             <div className="flex items-center gap-2">
@@ -154,19 +154,19 @@ export const UserReviews = () => {
                     className={`w-7 h-7 ${
                       (hoverRating || rating) >= star
                         ? "text-amber-400"
-                        : "text-slate-700"
+                        : "text-slate-200"
                     }`}
                   />
                 </button>
               ))}
-              <span className="text-xs font-bold text-amber-400 ml-2">
+              <span className="text-xs font-bold text-amber-600 ml-2">
                 {rating} Stars ({rating === 5 ? "Exceptional" : rating === 4 ? "Great" : "Good"})
               </span>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Review Comments & Feedback *
             </label>
             <textarea
@@ -175,7 +175,7 @@ export const UserReviews = () => {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="How was the mechanic's craftsmanship? Was the pickup on time? How is the vehicle running now?..."
-              className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 focus:bg-white custom-scroll"
             />
           </div>
 
@@ -194,27 +194,27 @@ export const UserReviews = () => {
 
       {/* Submitted Reviews History */}
       <div className="space-y-4">
-        <h3 className="text-base font-bold text-white">My Submitted Reviews</h3>
+        <h3 className="text-base font-bold text-slate-900">My Submitted Reviews</h3>
         {reviews.map((r) => (
           <div
             key={r.id}
-            className="p-5 rounded-3xl bg-[#182234] border border-slate-750/70 shadow-xl space-y-2 text-xs"
+            className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-sm shadow-slate-200/50 space-y-2 text-xs"
           >
             <div className="flex items-center justify-between">
               <div>
-                <span className="font-bold text-white text-sm">{r.serviceName}</span>
-                <p className="text-[11px] text-slate-400">
-                  Technician: <strong className="text-orange-400">{r.mechanicName}</strong> • {r.date}
+                <span className="font-bold text-slate-900 text-sm">{r.serviceName}</span>
+                <p className="text-[11px] text-slate-500">
+                  Technician: <strong className="text-orange-600">{r.mechanicName}</strong> • {r.date}
                 </p>
               </div>
 
-              <div className="flex items-center gap-1 text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-xl border border-amber-500/20 font-bold">
-                <FaStar className="w-3 h-3" />
+              <div className="flex items-center gap-1 text-amber-700 bg-amber-50 px-2.5 py-1 rounded-xl border border-amber-200 font-bold">
+                <FaStar className="w-3 h-3 text-amber-500" />
                 <span>{r.rating}.0</span>
               </div>
             </div>
 
-            <p className="text-slate-300 italic pt-1 leading-relaxed bg-slate-900/60 p-3 rounded-2xl border border-slate-800">
+            <p className="text-slate-700 italic pt-1 leading-relaxed bg-slate-50 p-3 rounded-2xl border border-slate-200">
               "{r.comment}"
             </p>
           </div>
@@ -225,4 +225,3 @@ export const UserReviews = () => {
 };
 
 export default UserReviews;
-

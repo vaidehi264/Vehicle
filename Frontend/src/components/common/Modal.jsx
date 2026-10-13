@@ -27,7 +27,7 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = "max-w-xl" 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
           />
 
           {/* Dialog Container */}
@@ -36,22 +36,22 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = "max-w-xl" 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-            className={`relative w-full ${maxWidth} bg-[#182234] border border-slate-700/80 rounded-2xl shadow-2xl shadow-black/60 z-10 overflow-hidden flex flex-col max-h-[90vh]`}
+            className={`relative w-full ${maxWidth} bg-white border border-slate-200 rounded-2xl shadow-2xl shadow-slate-900/10 z-10 overflow-hidden flex flex-col max-h-[90vh]`}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/80 bg-slate-800/40">
-              <h3 className="text-lg font-bold text-white tracking-wide">{title}</h3>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/80">
+              <h3 className="text-lg font-bold text-slate-900 tracking-wide">{title}</h3>
               <button
                 type="button"
                 onClick={onClose}
-                className="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-700/50 transition-colors cursor-pointer"
+                className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-200/60 transition-colors cursor-pointer"
               >
                 <FaTimes className="w-4 h-4" />
               </button>
             </div>
 
             {/* Content */}
-            <div className="p-6 overflow-y-auto space-y-4 custom-scroll text-slate-200">
+            <div className="p-6 overflow-y-auto space-y-4 custom-scroll text-slate-700">
               {children}
             </div>
           </motion.div>
@@ -62,4 +62,3 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = "max-w-xl" 
 };
 
 export default Modal;
-

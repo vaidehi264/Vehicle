@@ -52,17 +52,17 @@ export const AdminDashboard = () => {
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
       {/* Top Banner / Welcome */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               Platform Overview
             </h1>
-            <span className="px-2.5 py-0.5 rounded-full bg-orange-500/15 text-orange-400 text-xs font-bold border border-orange-500/30">
+            <span className="px-2.5 py-0.5 rounded-full bg-orange-50 text-orange-700 text-xs font-bold border border-orange-200">
               Live Control
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-400">
+          <p className="text-xs sm:text-sm text-slate-500">
             Real-time workshop bookings, mechanic allocation, customer registrations, and revenue tracking.
           </p>
         </div>
@@ -132,15 +132,15 @@ export const AdminDashboard = () => {
       {/* Main Grid: Recent Bookings & System Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Column: Recent Bookings Table */}
-        <div className="lg:col-span-8 bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="lg:col-span-8 bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-200">
             <div>
-              <h3 className="text-base font-bold text-white">Recent Service Bookings</h3>
-              <p className="text-xs text-slate-400">Latest workshop arrivals and scheduled dispatches</p>
+              <h3 className="text-base font-bold text-slate-900">Recent Service Bookings</h3>
+              <p className="text-xs text-slate-500">Latest workshop arrivals and scheduled dispatches</p>
             </div>
             <Link
               to="/admin/bookings"
-              className="text-xs font-bold text-orange-400 hover:text-orange-300 flex items-center gap-1"
+              className="text-xs font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1"
             >
               View Full Table →
             </Link>
@@ -148,7 +148,7 @@ export const AdminDashboard = () => {
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="text-[11px] uppercase tracking-wider text-slate-400 bg-slate-900/60 border-b border-slate-800">
+              <thead className="text-[11px] uppercase tracking-wider text-slate-500 bg-slate-50 border-b border-slate-200">
                 <tr>
                   <th className="py-3 px-3">Booking ID</th>
                   <th className="py-3 px-3">Customer & Vehicle</th>
@@ -158,28 +158,28 @@ export const AdminDashboard = () => {
                   <th className="py-3 px-3 text-right">Cost</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/80">
+              <tbody className="divide-y divide-slate-100">
                 {recentBookings.map((b) => (
-                  <tr key={b.id} className="hover:bg-slate-850/60 transition-colors">
-                    <td className="py-3.5 px-3 font-mono font-bold text-orange-400">{b.id}</td>
+                  <tr key={b.id} className="hover:bg-slate-50/80 transition-colors">
+                    <td className="py-3.5 px-3 font-mono font-bold text-orange-600">{b.id}</td>
                     <td className="py-3.5 px-3">
-                      <p className="font-bold text-white">{b.customerName}</p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="font-bold text-slate-900">{b.customerName}</p>
+                      <p className="text-[11px] text-slate-500">
                         {b.vehicleDetails?.make} {b.vehicleDetails?.model} ({b.vehicleDetails?.registrationNumber})
                       </p>
                     </td>
-                    <td className="py-3.5 px-3 max-w-[160px] truncate font-medium text-slate-300">
+                    <td className="py-3.5 px-3 max-w-[160px] truncate font-medium text-slate-700">
                       {b.serviceName}
                     </td>
                     <td className="py-3.5 px-3">
-                      <span className="text-slate-300 font-medium">
+                      <span className="text-slate-700 font-medium">
                         {b.mechanicName || "Unassigned"}
                       </span>
                     </td>
                     <td className="py-3.5 px-3">
                       <Badge size="xs">{b.status}</Badge>
                     </td>
-                    <td className="py-3.5 px-3 text-right font-extrabold text-white">
+                    <td className="py-3.5 px-3 text-right font-extrabold text-slate-900">
                       ₹{b.serviceCost.toLocaleString()}
                     </td>
                   </tr>
@@ -192,10 +192,10 @@ export const AdminDashboard = () => {
         {/* Right Column: Recent Customers & Quick Insights */}
         <div className="lg:col-span-4 space-y-6">
           {/* Recent Registrations */}
-          <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-              <h3 className="text-base font-bold text-white">Recent Users</h3>
-              <Link to="/admin/users" className="text-xs font-bold text-orange-400 hover:text-orange-300">
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+              <h3 className="text-base font-bold text-slate-900">Recent Users</h3>
+              <Link to="/admin/users" className="text-xs font-bold text-orange-600 hover:text-orange-700">
                 View All →
               </Link>
             </div>
@@ -204,20 +204,20 @@ export const AdminDashboard = () => {
               {recentUsers.map((u) => (
                 <div
                   key={u.id}
-                  className="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800"
+                  className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200"
                 >
                   <div className="flex items-center gap-3">
                     <img
                       src={u.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100"}
                       alt={u.name}
-                      className="w-8 h-8 rounded-full object-cover border border-slate-700"
+                      className="w-8 h-8 rounded-full object-cover border border-slate-200"
                     />
                     <div>
-                      <p className="text-xs font-bold text-white">{u.name}</p>
-                      <p className="text-[10px] text-slate-400">{u.email}</p>
+                      <p className="text-xs font-bold text-slate-900">{u.name}</p>
+                      <p className="text-[10px] text-slate-500">{u.email}</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                     {u.status}
                   </span>
                 </div>
@@ -226,47 +226,47 @@ export const AdminDashboard = () => {
           </div>
 
           {/* Service Category Breakdown Card */}
-          <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-            <h3 className="text-base font-bold text-white border-b border-slate-800 pb-3">
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+            <h3 className="text-base font-bold text-slate-900 border-b border-slate-200 pb-3">
               Service Distribution
             </h3>
             <div className="space-y-3 text-xs">
               <div>
-                <div className="flex justify-between text-slate-300 font-medium mb-1">
+                <div className="flex justify-between text-slate-700 font-medium mb-1">
                   <span>General Maintenance (42%)</span>
                   <span>₹18,400</span>
                 </div>
-                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                   <div className="h-full bg-orange-500 rounded-full w-[42%]" />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-slate-300 font-medium mb-1">
+                <div className="flex justify-between text-slate-700 font-medium mb-1">
                   <span>Brakes & Suspension (28%)</span>
                   <span>₹12,250</span>
                 </div>
-                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                   <div className="h-full bg-sky-500 rounded-full w-[28%]" />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-slate-300 font-medium mb-1">
+                <div className="flex justify-between text-slate-700 font-medium mb-1">
                   <span>Engine & Diagnostics (18%)</span>
                   <span>₹7,890</span>
                 </div>
-                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                   <div className="h-full bg-emerald-500 rounded-full w-[18%]" />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-slate-300 font-medium mb-1">
+                <div className="flex justify-between text-slate-700 font-medium mb-1">
                   <span>Detailing & Body (12%)</span>
                   <span>₹5,260</span>
                 </div>
-                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                   <div className="h-full bg-purple-500 rounded-full w-[12%]" />
                 </div>
               </div>
@@ -279,4 +279,3 @@ export const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
-

@@ -4,20 +4,20 @@ import { FaCarCrash, FaHome } from "react-icons/fa";
 
 export const NotFound = () => {
   return (
-    <div className="min-h-screen bg-[#0b1120] flex flex-col items-center justify-center p-6 text-center">
-      <div className="w-20 h-20 rounded-3xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center mb-6 shadow-2xl shadow-orange-500/20">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col items-center justify-center p-6 text-center">
+      <div className="w-20 h-20 rounded-3xl bg-orange-50 border border-orange-200 text-orange-600 flex items-center justify-center mb-6 shadow-xl shadow-orange-500/10">
         <FaCarCrash className="w-10 h-10" />
       </div>
 
-      <span className="text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20 mb-3">
+      <span className="text-xs font-bold uppercase tracking-widest text-orange-700 bg-orange-50 px-3 py-1 rounded-full border border-orange-200 mb-3">
         404 Error — Page Not Found
       </span>
 
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3">
         Off the Beaten Path
       </h1>
 
-      <p className="text-slate-400 text-sm max-w-md mb-8 leading-relaxed">
+      <p className="text-slate-600 text-sm max-w-md mb-8 leading-relaxed">
         The page you are looking for might have been moved, renamed, or is temporarily unavailable. Let's get you back on the right road.
       </p>
 
@@ -32,4 +32,3 @@ export const NotFound = () => {
 };
 
 export default NotFound;
-

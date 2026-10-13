@@ -26,7 +26,6 @@ export const MechanicDashboard = () => {
 
   const loadData = () => {
     const allBookings = storageService.getBookings();
-    // Filter bookings assigned to this mechanic (or default to mech-001 Suresh Verma if demo)
     const mechId = currentUser?.id || "mech-001";
     const filtered = allBookings.filter(
       (b) => b.mechanicId === mechId || b.mechanicName === currentUser?.name
@@ -52,7 +51,7 @@ export const MechanicDashboard = () => {
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
       {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div className="flex items-center gap-4">
           <img
             src={currentUser?.avatar || "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100"}
@@ -61,15 +60,15 @@ export const MechanicDashboard = () => {
           />
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-xl sm:text-2xl font-extrabold text-white">
+              <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                 Welcome back, {currentUser?.name || "Suresh Verma"}
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full bg-sky-500/15 text-sky-400 text-xs font-bold border border-sky-500/30">
+              <span className="px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 text-xs font-bold border border-sky-200">
                 Lead Bay Specialist
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
-              Specialization: <span className="text-orange-400 font-semibold">{currentUser?.specialization || "Engine Diagnostics & Overhaul"}</span> • Status: <span className="text-emerald-400 font-semibold">{currentUser?.availability || "Available"}</span>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Specialization: <span className="text-orange-600 font-semibold">{currentUser?.specialization || "Engine Diagnostics & Overhaul"}</span> • Status: <span className="text-emerald-600 font-semibold">{currentUser?.availability || "Available"}</span>
             </p>
           </div>
         </div>
@@ -101,7 +100,7 @@ export const MechanicDashboard = () => {
         />
         <StatCard
           title="Completed Jobs"
-          value={completedCount + 120} // combined with historical baseline
+          value={completedCount + 120}
           icon={FaCheckCircle}
           change="+14 this week"
           trend="up"
@@ -119,15 +118,15 @@ export const MechanicDashboard = () => {
       {/* Main Grid: Active Jobs & Feedback */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Active Jobs in Progress */}
-        <div className="lg:col-span-8 bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="lg:col-span-8 bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-200">
             <div>
-              <h3 className="text-base font-bold text-white">Active Bay Jobs</h3>
-              <p className="text-xs text-slate-400">Cars currently on your workshop lift</p>
+              <h3 className="text-base font-bold text-slate-900">Active Bay Jobs</h3>
+              <p className="text-xs text-slate-500">Cars currently on your workshop lift</p>
             </div>
             <Link
               to="/mechanic/jobs"
-              className="text-xs font-bold text-orange-400 hover:text-orange-300 flex items-center gap-1"
+              className="text-xs font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1"
             >
               Update Stage & Notes →
             </Link>
@@ -138,16 +137,16 @@ export const MechanicDashboard = () => {
               {activeJobs.map((job) => (
                 <div
                   key={job.id}
-                  className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                  className="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-orange-400">{job.id}</span>
+                      <span className="font-mono text-xs font-bold text-orange-600">{job.id}</span>
                       <Badge size="xs">{job.status}</Badge>
                     </div>
-                    <h4 className="text-sm font-bold text-white">{job.serviceName}</h4>
-                    <p className="text-xs text-slate-400 flex items-center gap-2">
-                      <FaCar className="text-slate-500" />
+                    <h4 className="text-sm font-bold text-slate-900">{job.serviceName}</h4>
+                    <p className="text-xs text-slate-600 flex items-center gap-2">
+                      <FaCar className="text-slate-400" />
                       <span>{job.vehicleDetails?.make} {job.vehicleDetails?.model} ({job.vehicleDetails?.registrationNumber})</span>
                     </p>
                     <p className="text-[11px] text-slate-500">
@@ -167,37 +166,37 @@ export const MechanicDashboard = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-8 text-slate-400 text-xs">
+            <div className="text-center py-8 text-slate-500 text-xs">
               No jobs currently in progress on hoist. Check "Service Requests" to accept new incoming bookings.
             </div>
           )}
         </div>
 
         {/* Recent Customer Feedback for this Mechanic */}
-        <div className="lg:col-span-4 bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4">
-          <div className="flex justify-between items-center pb-3 border-b border-slate-800">
-            <h3 className="text-base font-bold text-white">Recent Feedback</h3>
-            <span className="text-xs font-bold text-amber-400">★ 4.9 Average</span>
+        <div className="lg:col-span-4 bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
+          <div className="flex justify-between items-center pb-3 border-b border-slate-200">
+            <h3 className="text-base font-bold text-slate-900">Recent Feedback</h3>
+            <span className="text-xs font-bold text-amber-600">★ 4.9 Average</span>
           </div>
 
           <div className="space-y-3">
             {reviews.slice(0, 3).map((r) => (
               <div
                 key={r.id}
-                className="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2 text-xs"
+                className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-white">{r.userName}</span>
-                  <div className="flex text-amber-400 text-[10px]">
+                  <span className="font-bold text-slate-900">{r.userName}</span>
+                  <div className="flex text-amber-500 text-[10px]">
                     {[...Array(r.rating)].map((_, i) => (
                       <FaStar key={i} />
                     ))}
                   </div>
                 </div>
-                <p className="text-slate-300 italic text-[11px] leading-relaxed">
+                <p className="text-slate-600 italic text-[11px] leading-relaxed">
                   "{r.comment}"
                 </p>
-                <span className="text-[10px] text-slate-500 block">{r.date}</span>
+                <span className="text-[10px] text-slate-400 block">{r.date}</span>
               </div>
             ))}
           </div>

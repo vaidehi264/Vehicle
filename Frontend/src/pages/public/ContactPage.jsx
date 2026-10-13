@@ -63,15 +63,15 @@ export const ContactPage = () => {
   ];
 
   return (
-    <div className="bg-[#0b1120] text-slate-100 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+    <div className="bg-[#f8fafc] text-slate-900 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <span className="text-xs font-bold uppercase tracking-wider text-orange-500">
+        <span className="text-xs font-bold uppercase tracking-wider text-orange-600">
           We Are Here For You
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
           Contact AutoServe Support
         </h1>
-        <p className="text-sm sm:text-base text-slate-300">
+        <p className="text-sm sm:text-base text-slate-600">
           Have questions regarding an upcoming booking or want to partner your workshop? Reach out to our dedicated support desk.
         </p>
       </div>
@@ -79,53 +79,53 @@ export const ContactPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Contact Info & Direct Channels */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-[#182234] border border-slate-800 rounded-2xl p-6 space-y-6">
-            <h3 className="text-lg font-bold text-white border-b border-slate-800 pb-3">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 space-y-6 shadow-sm shadow-slate-200/50">
+            <h3 className="text-lg font-bold text-slate-900 border-b border-slate-200 pb-3">
               Direct Contact Details
             </h3>
 
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-400 border border-orange-500/20 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 border border-orange-200 flex items-center justify-center shrink-0">
                 <FaPhoneAlt className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-slate-400 font-semibold uppercase">Customer Care & Breakdown Hotline</p>
-                <p className="text-sm font-bold text-white mt-0.5">1800-419-AUTO (Toll Free)</p>
-                <p className="text-xs text-slate-400">+91 (080) 4120-7799</p>
+                <p className="text-xs text-slate-500 font-semibold uppercase">Customer Care & Breakdown Hotline</p>
+                <p className="text-sm font-bold text-slate-900 mt-0.5">1800-419-AUTO (Toll Free)</p>
+                <p className="text-xs text-slate-500">+91 (080) 4120-7799</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 border border-sky-200 flex items-center justify-center shrink-0">
                 <FaEnvelope className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-slate-400 font-semibold uppercase">Email Inquiries</p>
-                <p className="text-sm font-bold text-white mt-0.5">support@autoserve.com</p>
-                <p className="text-xs text-slate-400">mechanic-partners@autoserve.com</p>
+                <p className="text-xs text-slate-500 font-semibold uppercase">Email Inquiries</p>
+                <p className="text-sm font-bold text-slate-900 mt-0.5">support@autoserve.com</p>
+                <p className="text-xs text-slate-500">mechanic-partners@autoserve.com</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center shrink-0">
                 <FaMapMarkerAlt className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-slate-400 font-semibold uppercase">Headquarters</p>
-                <p className="text-sm text-slate-200 mt-0.5 leading-relaxed">
+                <p className="text-xs text-slate-500 font-semibold uppercase">Headquarters</p>
+                <p className="text-sm text-slate-700 mt-0.5 leading-relaxed">
                   AutoServe Innovation Park, Ground Floor, Outer Ring Road, Bellandur, Bangalore, Karnataka 560103
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center shrink-0">
                 <FaClock className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-slate-400 font-semibold uppercase">Workshop Operating Hours</p>
-                <p className="text-sm font-bold text-white mt-0.5">Mon - Sat: 08:00 AM - 08:00 PM</p>
-                <p className="text-xs text-slate-400">24/7 Roadside Assistance Active</p>
+                <p className="text-xs text-slate-500 font-semibold uppercase">Workshop Operating Hours</p>
+                <p className="text-sm font-bold text-slate-900 mt-0.5">Mon - Sat: 08:00 AM - 08:00 PM</p>
+                <p className="text-xs text-slate-500">24/7 Roadside Assistance Active</p>
               </div>
             </div>
           </div>
@@ -133,53 +133,53 @@ export const ContactPage = () => {
 
         {/* Contact Form */}
         <div className="lg:col-span-7">
-          <div className="bg-[#182234] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
-            <h3 className="text-xl font-bold text-white mb-2">Send Us a Message</h3>
-            <p className="text-xs text-slate-400 mb-6">Our vehicle care advisors typically reply in under 2 hours.</p>
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm shadow-slate-200/50">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">Send Us a Message</h3>
+            <p className="text-xs text-slate-500 mb-6">Our vehicle care advisors typically reply in under 2 hours.</p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">Your Name *</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">Your Name *</label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="e.g. Aditi Rao"
-                    className="w-full bg-slate-900 border border-slate-750 text-white placeholder-slate-500 text-sm rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">Email Address *</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email Address *</label>
                   <input
                     type="email"
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="aditi@example.com"
-                    className="w-full bg-slate-900 border border-slate-750 text-white placeholder-slate-500 text-sm rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">Phone Number</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone Number</label>
                   <input
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-slate-900 border border-slate-750 text-white placeholder-slate-500 text-sm rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">Inquiry Topic</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">Inquiry Topic</label>
                   <select
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-750 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                   >
                     <option value="General Inquiry">General Service Inquiry</option>
                     <option value="Booking Modification">Booking Status or Modification</option>
@@ -191,14 +191,14 @@ export const ContactPage = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Message / Vehicle Issue Details *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Message / Vehicle Issue Details *</label>
                 <textarea
                   required
                   rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Describe your query or specific symptoms your vehicle is experiencing..."
-                  className="w-full bg-slate-900 border border-slate-750 text-white placeholder-slate-500 text-sm rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll transition-all"
                 />
               </div>
 
@@ -215,12 +215,12 @@ export const ContactPage = () => {
       </div>
 
       {/* FAQ Accordion */}
-      <div className="bg-[#182234] border border-slate-800 rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto space-y-6">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto space-y-6 shadow-sm shadow-slate-200/50">
         <div className="text-center space-y-2 mb-8">
-          <h3 className="text-2xl font-bold text-white flex items-center justify-center gap-2">
-            <FaQuestionCircle className="text-orange-400" /> Frequently Asked Questions
+          <h3 className="text-2xl font-bold text-slate-900 flex items-center justify-center gap-2">
+            <FaQuestionCircle className="text-orange-600" /> Frequently Asked Questions
           </h3>
-          <p className="text-xs text-slate-400">Everything you need to know about our service process.</p>
+          <p className="text-xs text-slate-500">Everything you need to know about our service process.</p>
         </div>
 
         <div className="space-y-3">
@@ -229,18 +229,18 @@ export const ContactPage = () => {
             return (
               <div
                 key={index}
-                className="border border-slate-800 rounded-2xl bg-slate-900/60 overflow-hidden transition-colors"
+                className="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden transition-colors"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : index)}
-                  className="w-full p-4 text-left flex items-center justify-between text-sm font-bold text-white hover:text-orange-400 transition-colors cursor-pointer"
+                  className="w-full p-4 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-orange-600 transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
-                  {isOpen ? <FaChevronUp className="w-3.5 h-3.5 text-orange-400 shrink-0" /> : <FaChevronDown className="w-3.5 h-3.5 text-slate-500 shrink-0" />}
+                  {isOpen ? <FaChevronUp className="w-3.5 h-3.5 text-orange-600 shrink-0" /> : <FaChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />}
                 </button>
                 {isOpen && (
-                  <div className="px-4 pb-4 text-xs text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3">
+                  <div className="px-4 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -254,4 +254,3 @@ export const ContactPage = () => {
 };
 
 export default ContactPage;
-

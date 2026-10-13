@@ -135,12 +135,12 @@ export const UserManagement = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             User Management
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Registered vehicle owners, contact details, account access status, and booking history.
           </p>
         </div>
@@ -155,28 +155,28 @@ export const UserManagement = () => {
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-lg">
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-sm shadow-slate-200/50">
         <div className="relative w-full sm:w-80">
-          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-3.5 h-3.5" />
+          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-3.5 h-3.5" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, email, phone..."
-            className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-orange-500"
+            className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl pl-9 pr-3 py-2.5 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
           />
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <span className="text-xs text-slate-400 font-semibold mr-1">Status:</span>
+          <span className="text-xs text-slate-500 font-semibold mr-1">Status:</span>
           {["all", "active", "inactive"].map((st) => (
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
               className={`px-3 py-1.5 text-xs font-semibold rounded-xl border capitalize transition-all cursor-pointer ${
                 statusFilter === st
-                  ? "bg-orange-500 text-white border-orange-500"
-                  : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                  ? "bg-orange-600 text-white border-orange-600 shadow-sm"
+                  : "bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               {st}
@@ -186,10 +186,10 @@ export const UserManagement = () => {
       </div>
 
       {/* Users Table */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl shadow-xl overflow-hidden">
+      <div className="bg-white border border-slate-200/90 rounded-3xl shadow-sm shadow-slate-200/50 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-900/80 text-[11px] uppercase tracking-wider text-slate-400 border-b border-slate-800">
+            <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500 border-b border-slate-200">
               <tr>
                 <th className="py-3.5 px-4">Customer</th>
                 <th className="py-3.5 px-4">Contact Info</th>
@@ -199,32 +199,32 @@ export const UserManagement = () => {
                 <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800">
+            <tbody className="divide-y divide-slate-100">
               {filteredUsers.map((u) => (
-                <tr key={u.id} className="hover:bg-slate-850/60 transition-colors">
+                <tr key={u.id} className="hover:bg-slate-50/80 transition-colors">
                   <td className="py-3.5 px-4">
                     <div className="flex items-center gap-3">
                       <img
                         src={u.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100"}
                         alt={u.name}
-                        className="w-9 h-9 rounded-full object-cover border border-slate-700 shrink-0"
+                        className="w-9 h-9 rounded-full object-cover border border-slate-200 shrink-0"
                       />
                       <div>
-                        <p className="font-bold text-white text-sm">{u.name}</p>
-                        <p className="text-[11px] text-slate-400 font-mono">{u.id}</p>
+                        <p className="font-bold text-slate-900 text-sm">{u.name}</p>
+                        <p className="text-[11px] text-slate-500 font-mono">{u.id}</p>
                       </div>
                     </div>
                   </td>
                   <td className="py-3.5 px-4">
-                    <p className="text-slate-300 font-medium">{u.email}</p>
-                    <p className="text-[11px] text-slate-400">{u.phone || "No phone"}</p>
+                    <p className="text-slate-700 font-medium">{u.email}</p>
+                    <p className="text-[11px] text-slate-500">{u.phone || "No phone"}</p>
                   </td>
                   <td className="py-3.5 px-4">
-                    <span className="font-semibold text-slate-300">
+                    <span className="font-semibold text-slate-700">
                       {u.vehiclesCount ?? 1} Registered
                     </span>
                   </td>
-                  <td className="py-3.5 px-4 text-slate-400">
+                  <td className="py-3.5 px-4 text-slate-500">
                     {u.joinedDate || "2025-01-15"}
                   </td>
                   <td className="py-3.5 px-4">
@@ -235,7 +235,7 @@ export const UserManagement = () => {
                       <button
                         onClick={() => setSelectedUser(u)}
                         title="View Details"
-                        className="p-2 text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 rounded-lg border border-slate-750 transition-colors cursor-pointer"
+                        className="p-2 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
                       >
                         <FaEye className="w-3.5 h-3.5" />
                       </button>
@@ -243,7 +243,7 @@ export const UserManagement = () => {
                       <button
                         onClick={() => openEditModal(u)}
                         title="Edit Customer"
-                        className="p-2 text-slate-400 hover:text-orange-400 bg-slate-900 hover:bg-slate-800 rounded-lg border border-slate-750 transition-colors cursor-pointer"
+                        className="p-2 text-slate-600 hover:text-orange-600 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
                       >
                         <FaEdit className="w-3.5 h-3.5" />
                       </button>
@@ -253,8 +253,8 @@ export const UserManagement = () => {
                         title={u.status === "active" ? "Deactivate User" : "Activate User"}
                         className={`p-2 rounded-lg border transition-colors cursor-pointer ${
                           u.status === "active"
-                            ? "text-emerald-400 hover:text-rose-400 bg-emerald-500/10 border-emerald-500/20"
-                            : "text-rose-400 hover:text-emerald-400 bg-rose-500/10 border-rose-500/20"
+                            ? "text-emerald-700 hover:text-rose-600 bg-emerald-50 border-emerald-200"
+                            : "text-rose-700 hover:text-emerald-600 bg-rose-50 border-rose-200"
                         }`}
                       >
                         {u.status === "active" ? (
@@ -289,15 +289,15 @@ export const UserManagement = () => {
           maxWidth="max-w-lg"
         >
           <div className="space-y-4">
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
               <img
                 src={selectedUser.avatar}
                 alt={selectedUser.name}
-                className="w-16 h-16 rounded-2xl object-cover border border-orange-500/40"
+                className="w-16 h-16 rounded-2xl object-cover border border-orange-300"
               />
               <div>
-                <h4 className="text-base font-bold text-white">{selectedUser.name}</h4>
-                <p className="text-xs text-orange-400 font-mono">{selectedUser.id}</p>
+                <h4 className="text-base font-bold text-slate-900">{selectedUser.name}</h4>
+                <p className="text-xs text-orange-600 font-mono">{selectedUser.id}</p>
                 <div className="mt-1">
                   <Badge size="xs">{selectedUser.status}</Badge>
                 </div>
@@ -305,46 +305,46 @@ export const UserManagement = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <FaEnvelope className="text-orange-400" /> Email
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-slate-500 flex items-center gap-1.5">
+                  <FaEnvelope className="text-orange-600" /> Email
                 </span>
-                <p className="font-bold text-white truncate">{selectedUser.email}</p>
+                <p className="font-bold text-slate-900 truncate">{selectedUser.email}</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <FaPhone className="text-orange-400" /> Phone
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-slate-500 flex items-center gap-1.5">
+                  <FaPhone className="text-orange-600" /> Phone
                 </span>
-                <p className="font-bold text-white">{selectedUser.phone || "Not provided"}</p>
+                <p className="font-bold text-slate-900">{selectedUser.phone || "Not provided"}</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <FaCalendarAlt className="text-orange-400" /> Member Since
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-slate-500 flex items-center gap-1.5">
+                  <FaCalendarAlt className="text-orange-600" /> Member Since
                 </span>
-                <p className="font-bold text-white">{selectedUser.joinedDate || "2025-01-15"}</p>
+                <p className="font-bold text-slate-900">{selectedUser.joinedDate || "2025-01-15"}</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <FaCar className="text-orange-400" /> Vehicles Registered
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-slate-500 flex items-center gap-1.5">
+                  <FaCar className="text-orange-600" /> Vehicles Registered
                 </span>
-                <p className="font-bold text-white">{selectedUser.vehiclesCount ?? 1} Vehicles</p>
+                <p className="font-bold text-slate-900">{selectedUser.vehiclesCount ?? 1} Vehicles</p>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs">
-              <span className="text-slate-400 flex items-center gap-1.5 mb-1">
-                <FaMapMarkerAlt className="text-orange-400" /> Registered Garage Address
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-slate-500 flex items-center gap-1.5 mb-1">
+                <FaMapMarkerAlt className="text-orange-600" /> Registered Garage Address
               </span>
-              <p className="text-slate-200">{selectedUser.address || "Bengaluru, Karnataka, India"}</p>
+              <p className="text-slate-700">{selectedUser.address || "Bengaluru, Karnataka, India"}</p>
             </div>
 
-            <div className="pt-3 border-t border-slate-800 flex justify-end">
+            <div className="pt-3 border-t border-slate-200 flex justify-end">
               <button
                 onClick={() => setSelectedUser(null)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
               >
                 Close
               </button>
@@ -363,68 +363,68 @@ export const UserManagement = () => {
         >
           <form onSubmit={handleSaveUser} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Full Name *</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name *</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Ramesh Saxena"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Email Address *</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email Address *</label>
               <input
                 type="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="ramesh@example.com"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Phone Number</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone Number</label>
               <input
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="+91 98765 43210"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Address</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Address</label>
               <input
                 type="text"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 placeholder="Address / Locality"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Account Status</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Account Status</label>
               <select
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               >
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
               </select>
             </div>
 
-            <div className="pt-4 border-t border-slate-800 flex justify-end gap-2">
+            <div className="pt-4 border-t border-slate-200 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setIsAddEditOpen(false)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
               >
                 Cancel
               </button>
@@ -443,4 +443,3 @@ export const UserManagement = () => {
 };
 
 export default UserManagement;
-

@@ -4,28 +4,28 @@ import { motion } from "framer-motion";
 export const StatCard = ({ title, value, icon: Icon, change, trend = "up", subtitle, color = "orange" }) => {
   const colorStyles = {
     orange: {
-      bg: "bg-orange-500/10",
-      text: "text-orange-400",
-      border: "border-orange-500/20",
-      glow: "from-orange-500/10",
+      bg: "bg-orange-50",
+      text: "text-orange-600",
+      border: "border-orange-200",
+      glow: "from-orange-500/5",
     },
     emerald: {
-      bg: "bg-emerald-500/10",
-      text: "text-emerald-400",
-      border: "border-emerald-500/20",
-      glow: "from-emerald-500/10",
+      bg: "bg-emerald-50",
+      text: "text-emerald-600",
+      border: "border-emerald-200",
+      glow: "from-emerald-500/5",
     },
     sky: {
-      bg: "bg-sky-500/10",
-      text: "text-sky-400",
-      border: "border-sky-500/20",
-      glow: "from-sky-500/10",
+      bg: "bg-sky-50",
+      text: "text-sky-600",
+      border: "border-sky-200",
+      glow: "from-sky-500/5",
     },
     purple: {
-      bg: "bg-purple-500/10",
-      text: "text-purple-400",
-      border: "border-purple-500/20",
-      glow: "from-purple-500/10",
+      bg: "bg-purple-50",
+      text: "text-purple-600",
+      border: "border-purple-200",
+      glow: "from-purple-500/5",
     },
   };
 
@@ -34,27 +34,27 @@ export const StatCard = ({ title, value, icon: Icon, change, trend = "up", subti
   return (
     <motion.div
       whileHover={{ y: -3, transition: { duration: 0.2 } }}
-      className="relative overflow-hidden bg-[#182234] border border-slate-750/70 hover:border-slate-600 rounded-2xl p-5 shadow-lg shadow-black/20 transition-all"
+      className="relative overflow-hidden bg-white border border-slate-200/90 hover:border-slate-300 rounded-2xl p-5 shadow-sm shadow-slate-200/50 transition-all"
     >
-      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${style.glow} to-transparent rounded-bl-full pointer-events-none opacity-40`} />
+      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${style.glow} to-transparent rounded-bl-full pointer-events-none opacity-60`} />
       
       <div className="flex items-start justify-between">
         <div className="space-y-2">
-          <p className="text-xs font-semibold text-slate-400 tracking-wider uppercase">{title}</p>
-          <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{value}</h4>
+          <p className="text-xs font-semibold text-slate-500 tracking-wider uppercase">{title}</p>
+          <h4 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">{value}</h4>
           
           {(change || subtitle) && (
             <div className="flex items-center gap-2 pt-1 text-xs">
               {change && (
                 <span
                   className={`font-semibold px-1.5 py-0.5 rounded ${
-                    trend === "up" ? "text-emerald-400 bg-emerald-500/10" : "text-rose-400 bg-rose-500/10"
+                    trend === "up" ? "text-emerald-700 bg-emerald-50 border border-emerald-100" : "text-rose-700 bg-rose-50 border border-rose-100"
                   }`}
                 >
                   {trend === "up" ? "↑" : "↓"} {change}
                 </span>
               )}
-              {subtitle && <span className="text-slate-400">{subtitle}</span>}
+              {subtitle && <span className="text-slate-500">{subtitle}</span>}
             </div>
           )}
         </div>
@@ -70,4 +70,3 @@ export const StatCard = ({ title, value, icon: Icon, change, trend = "up", subti
 };
 
 export default StatCard;
-

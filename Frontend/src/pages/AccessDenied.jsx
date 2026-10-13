@@ -15,22 +15,22 @@ export const AccessDenied = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b1120] flex flex-col items-center justify-center p-6 text-center">
-      <div className="w-20 h-20 rounded-3xl bg-rose-500/10 border border-rose-500/30 text-rose-500 flex items-center justify-center mb-6 shadow-2xl shadow-rose-500/20">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col items-center justify-center p-6 text-center">
+      <div className="w-20 h-20 rounded-3xl bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center mb-6 shadow-xl shadow-rose-500/10">
         <FaShieldAlt className="w-10 h-10" />
       </div>
 
-      <span className="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20 mb-3">
+      <span className="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200 mb-3">
         403 — Unauthorized Role Access
       </span>
 
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3">
         Access Denied
       </h1>
 
-      <p className="text-slate-400 text-sm max-w-md mb-8 leading-relaxed">
+      <p className="text-slate-600 text-sm max-w-md mb-8 leading-relaxed">
         Your current session is authenticated as{" "}
-        <span className="text-orange-400 font-bold uppercase">
+        <span className="text-orange-600 font-bold uppercase">
           {currentUser?.role || "Guest"}
         </span>
         . This route requires elevated privileges restricted to a different role.
@@ -39,7 +39,7 @@ export const AccessDenied = () => {
       <div className="flex flex-wrap items-center justify-center gap-3">
         <button
           onClick={() => navigate(-1)}
-          className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700 transition-colors flex items-center gap-2 cursor-pointer"
+          className="px-5 py-2.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl border border-slate-300 transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
         >
           <FaArrowLeft className="w-3 h-3" /> Go Back
         </button>
@@ -56,4 +56,3 @@ export const AccessDenied = () => {
 };
 
 export default AccessDenied;
-

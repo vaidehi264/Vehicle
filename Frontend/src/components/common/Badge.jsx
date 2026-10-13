@@ -8,13 +8,13 @@ export const Badge = ({ children, variant = "default", size = "sm" }) => {
   };
 
   const variantMap = {
-    default: "bg-slate-800 text-slate-300 border border-slate-700",
-    primary: "bg-orange-500/15 text-orange-400 border border-orange-500/30",
-    success: "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30",
-    warning: "bg-amber-500/15 text-amber-400 border border-amber-500/30",
-    danger: "bg-rose-500/15 text-rose-400 border border-rose-500/30",
-    info: "bg-sky-500/15 text-sky-400 border border-sky-500/30",
-    purple: "bg-purple-500/15 text-purple-400 border border-purple-500/30",
+    default: "bg-slate-100 text-slate-700 border border-slate-200",
+    primary: "bg-orange-50 text-orange-700 border border-orange-200",
+    success: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+    warning: "bg-amber-50 text-amber-700 border border-amber-200",
+    danger: "bg-rose-50 text-rose-700 border border-rose-200",
+    info: "bg-sky-50 text-sky-700 border border-sky-200",
+    purple: "bg-purple-50 text-purple-700 border border-purple-200",
   };
 
   // Auto-detect variant based on common status terms
@@ -45,4 +45,3 @@ export const Badge = ({ children, variant = "default", size = "sm" }) => {
 };
 
 export default Badge;
-

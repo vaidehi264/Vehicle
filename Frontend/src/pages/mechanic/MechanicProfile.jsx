@@ -56,19 +56,19 @@ export const MechanicProfile = () => {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Mechanic Profile & Credentials
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Update your professional experience, hourly fee, workshop bio, and avatar portrait.
           </p>
         </div>
 
         <button
           onClick={handleLogout}
-          className="px-4 py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold rounded-xl transition-colors flex items-center gap-2 cursor-pointer"
+          className="px-4 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold rounded-xl transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
         >
           <FaSignOutAlt className="w-3.5 h-3.5" />
           <span>Exit Mechanic Session</span>
@@ -76,14 +76,14 @@ export const MechanicProfile = () => {
       </div>
 
       {/* Profile Form Card */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm shadow-slate-200/50 space-y-6">
         {/* Avatar Upload with Live Preview */}
-        <div className="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-200">
           <div className="relative group">
             <img
               src={formData.avatar}
               alt="Mechanic Avatar"
-              className="w-24 h-24 rounded-3xl object-cover border-2 border-orange-500 shadow-xl"
+              className="w-24 h-24 rounded-3xl object-cover border-2 border-orange-500 shadow-md"
             />
             <label className="absolute inset-0 bg-black/60 rounded-3xl flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
               <FaCamera className="w-5 h-5 mb-1" />
@@ -98,79 +98,79 @@ export const MechanicProfile = () => {
           </div>
 
           <div className="text-center sm:text-left space-y-1">
-            <h3 className="text-lg font-bold text-white">{formData.name}</h3>
-            <p className="text-xs text-orange-400 font-semibold">{formData.specialization}</p>
-            <p className="text-xs text-slate-400 flex items-center justify-center sm:justify-start gap-1">
-              <FaStar className="text-amber-400 w-3 h-3" />
+            <h3 className="text-lg font-bold text-slate-900">{formData.name}</h3>
+            <p className="text-xs text-orange-600 font-semibold">{formData.specialization}</p>
+            <p className="text-xs text-slate-500 flex items-center justify-center sm:justify-start gap-1">
+              <FaStar className="text-amber-500 w-3 h-3" />
               <span>4.9 / 5.0 Master Certified Rating</span>
             </p>
-            <p className="text-[11px] text-slate-500">Click avatar image to upload local photo</p>
+            <p className="text-[11px] text-slate-400">Click avatar image to upload local photo</p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Full Name</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email Address</label>
               <input
                 type="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Phone Number</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone Number</label>
               <input
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Years of Experience</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Years of Experience</label>
               <input
                 type="text"
                 value={formData.experience}
                 onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Base Hourly Rate (₹)</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Base Hourly Rate (₹)</label>
               <input
                 type="number"
                 value={formData.hourlyRate}
                 onChange={(e) => setFormData({ ...formData, hourlyRate: Number(e.target.value) })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">Core Specialization</label>
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">Core Specialization</label>
             <select
               value={formData.specialization}
               onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
-              className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
             >
               <option value="Engine Diagnostics & Overhaul">Engine Diagnostics & Overhaul</option>
               <option value="Brake Systems & Suspension">Brake Systems & Suspension</option>
@@ -181,12 +181,12 @@ export const MechanicProfile = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">Professional Bio & Certifications</label>
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">Professional Bio & Certifications</label>
             <textarea
               rows={3}
               value={formData.bio}
               onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-              className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll transition-all"
             />
           </div>
 
@@ -206,4 +206,3 @@ export const MechanicProfile = () => {
 };
 
 export default MechanicProfile;
-

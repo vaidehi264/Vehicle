@@ -28,17 +28,17 @@ export const UserServiceHistory = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Vehicle Service History
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Permanent vehicle maintenance passport with digital invoices, replacement parts logs, and warranty records.
           </p>
         </div>
 
-        <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+        <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200">
           {completedServices.length} Completed Service Records
         </span>
       </div>
@@ -48,30 +48,30 @@ export const UserServiceHistory = () => {
         {completedServices.map((service) => (
           <div
             key={service.id}
-            className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4 flex flex-col md:flex-row md:items-center justify-between gap-6"
+            className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4 flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
             <div className="space-y-2">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-orange-400">{service.id}</span>
+                <span className="font-mono text-xs font-bold text-orange-600">{service.id}</span>
                 <Badge size="xs" variant="success">Completed</Badge>
-                <span className="text-xs text-slate-400">Date: {service.bookingDate}</span>
+                <span className="text-xs text-slate-500">Date: {service.bookingDate}</span>
               </div>
 
-              <h3 className="text-base font-bold text-white">{service.serviceName}</h3>
+              <h3 className="text-base font-bold text-slate-900">{service.serviceName}</h3>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-300">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600">
                 <span className="flex items-center gap-1.5">
-                  <FaCar className="text-orange-400" />
-                  <strong>{service.vehicleDetails?.make} {service.vehicleDetails?.model}</strong> ({service.vehicleDetails?.registrationNumber})
+                  <FaCar className="text-orange-500" />
+                  <strong className="text-slate-800">{service.vehicleDetails?.make} {service.vehicleDetails?.model}</strong> ({service.vehicleDetails?.registrationNumber})
                 </span>
                 <span>•</span>
-                <span>Tech: <strong className="text-sky-400">{service.mechanicName || "Suresh Verma"}</strong></span>
+                <span>Tech: <strong className="text-sky-600">{service.mechanicName || "Suresh Verma"}</strong></span>
                 <span>•</span>
-                <span className="text-emerald-400 font-medium">Warranty Valid (1000 km)</span>
+                <span className="text-emerald-600 font-medium">Warranty Valid (1000 km)</span>
               </div>
 
               {service.serviceNotes && (
-                <p className="text-xs text-slate-400 italic bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                <p className="text-xs text-slate-600 italic bg-slate-50 p-3 rounded-xl border border-slate-200">
                   Notes: "{service.serviceNotes}"
                 </p>
               )}
@@ -79,15 +79,15 @@ export const UserServiceHistory = () => {
 
             <div className="flex flex-col md:items-end justify-between gap-3 shrink-0">
               <div className="md:text-right">
-                <span className="text-[10px] text-slate-500 uppercase font-bold block">Final Invoice Paid</span>
-                <span className="text-2xl font-black text-white">₹{service.serviceCost.toLocaleString()}</span>
-                <span className="text-[10px] text-emerald-400 font-semibold block">Paid via {service.paymentMethod || "UPI"}</span>
+                <span className="text-[10px] text-slate-400 uppercase font-bold block">Final Invoice Paid</span>
+                <span className="text-2xl font-black text-slate-900">₹{service.serviceCost.toLocaleString()}</span>
+                <span className="text-[10px] text-emerald-600 font-semibold block">Paid via {service.paymentMethod || "UPI"}</span>
               </div>
 
               <div className="flex items-center gap-2">
                 <Link
                   to="/user/reviews"
-                  className="px-3.5 py-1.5 bg-slate-850 hover:bg-slate-800 border border-slate-700 text-amber-400 text-xs font-semibold rounded-xl transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-amber-600 text-xs font-semibold rounded-xl transition-colors flex items-center gap-1.5"
                 >
                   <FaStar className="w-3 h-3" />
                   <span>Leave Review</span>
@@ -116,4 +116,3 @@ export const UserServiceHistory = () => {
 };
 
 export default UserServiceHistory;
-

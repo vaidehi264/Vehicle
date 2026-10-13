@@ -49,45 +49,45 @@ export const AvailabilityManagement = () => {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Availability & Bay Schedule
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Manage your service hoist availability, working shift hours, and view assigned booking roster.
           </p>
         </div>
 
         <button
           onClick={handleToggle}
-          className={`px-4 py-2 text-xs font-bold rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
+          className={`px-4 py-2 text-xs font-bold rounded-xl border flex items-center gap-2 transition-all cursor-pointer shadow-sm ${
             availability === "Available"
-              ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-300"
-              : "bg-amber-500/15 border-amber-500/40 text-amber-300"
+              ? "bg-emerald-50 border-emerald-300 text-emerald-800"
+              : "bg-amber-50 border-amber-300 text-amber-800"
           }`}
         >
-          {availability === "Available" ? <FaToggleOn className="w-5 h-5 text-emerald-400" /> : <FaToggleOff className="w-5 h-5 text-amber-400" />}
+          {availability === "Available" ? <FaToggleOn className="w-5 h-5 text-emerald-600" /> : <FaToggleOff className="w-5 h-5 text-amber-600" />}
           <span>Status: {availability}</span>
         </button>
       </div>
 
       {/* Working Schedule Form */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-        <h3 className="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-          <FaClock className="text-orange-400" /> Configure Shift Preferences
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm shadow-slate-200/50 space-y-6">
+        <h3 className="text-base font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+          <FaClock className="text-orange-600" /> Configure Shift Preferences
         </h3>
 
         <form onSubmit={handleSave} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Duty Availability Status
               </label>
               <select
                 value={availability}
                 onChange={(e) => setAvailability(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               >
                 <option value="Available">Available (Accepting New Work)</option>
                 <option value="Busy">Busy (All Bay Hoists Occupied)</option>
@@ -96,7 +96,7 @@ export const AvailabilityManagement = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Daily Shift Hours
               </label>
               <input
@@ -104,13 +104,13 @@ export const AvailabilityManagement = () => {
                 value={workingHours}
                 onChange={(e) => setWorkingHours(e.target.value)}
                 placeholder="e.g. 09:00 AM - 07:00 PM"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Working Days per Week
             </label>
             <input
@@ -118,7 +118,7 @@ export const AvailabilityManagement = () => {
               value={workingDays}
               onChange={(e) => setWorkingDays(e.target.value)}
               placeholder="e.g. Mon - Sat, or Tue - Sun"
-              className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
             />
           </div>
 
@@ -135,9 +135,9 @@ export const AvailabilityManagement = () => {
       </div>
 
       {/* Upcoming Assigned Roster */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
-        <h3 className="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-          <FaCalendarAlt className="text-orange-400" /> Upcoming Bay Assignments
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm shadow-slate-200/50 space-y-4">
+        <h3 className="text-base font-bold text-slate-900 border-b border-slate-200 pb-3 flex items-center gap-2">
+          <FaCalendarAlt className="text-orange-600" /> Upcoming Bay Assignments
         </h3>
 
         {upcomingAssignments.length > 0 ? (
@@ -145,28 +145,28 @@ export const AvailabilityManagement = () => {
             {upcomingAssignments.map((b) => (
               <div
                 key={b.id}
-                className="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between text-xs"
+                className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="font-mono font-bold text-orange-400">{b.id}</span>
+                    <span className="font-mono font-bold text-orange-600">{b.id}</span>
                     <Badge size="xs">{b.status}</Badge>
                   </div>
-                  <p className="font-bold text-white">{b.serviceName}</p>
-                  <p className="text-slate-400">
+                  <p className="font-bold text-slate-900">{b.serviceName}</p>
+                  <p className="text-slate-500">
                     {b.vehicleDetails?.make} {b.vehicleDetails?.model} ({b.vehicleDetails?.registrationNumber})
                   </p>
                 </div>
 
                 <div className="text-right">
-                  <p className="font-bold text-slate-200">{b.bookingDate}</p>
-                  <p className="text-orange-400">{b.timeSlot}</p>
+                  <p className="font-bold text-slate-800">{b.bookingDate}</p>
+                  <p className="text-orange-600 font-semibold">{b.timeSlot}</p>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-slate-400 text-xs py-4 text-center">
+          <p className="text-slate-500 text-xs py-4 text-center">
             No upcoming assignments scheduled for this week.
           </p>
         )}
@@ -176,4 +176,3 @@ export const AvailabilityManagement = () => {
 };
 
 export default AvailabilityManagement;
-

@@ -38,7 +38,6 @@ export const JobManagement = () => {
   const loadJobs = () => {
     const all = storageService.getBookings();
     const mechId = currentUser?.id || "mech-001";
-    // Show jobs assigned to this mechanic that are not cancelled
     const myJobs = all.filter(
       (b) =>
         (b.mechanicId === mechId || b.mechanicName === currentUser?.name) &&
@@ -86,17 +85,17 @@ export const JobManagement = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Active Job Management & Diagnostics
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Progress active repair jobs through workshop stages, record diagnostic findings, and set estimated delivery time.
           </p>
         </div>
 
-        <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-500/15 text-orange-400 border border-orange-500/30">
+        <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 border border-orange-200">
           {jobs.filter((j) => j.status !== "Completed").length} Unfinished Bay Jobs
         </span>
       </div>
@@ -108,21 +107,21 @@ export const JobManagement = () => {
           return (
             <div
               key={job.id}
-              className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4 flex flex-col justify-between"
+              className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4 flex flex-col justify-between"
             >
               <div>
                 {/* Header info */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                   <div>
-                    <span className="font-mono text-xs font-bold text-orange-400">{job.id}</span>
-                    <h3 className="text-base font-bold text-white mt-0.5">{job.serviceName}</h3>
+                    <span className="font-mono text-xs font-bold text-orange-600">{job.id}</span>
+                    <h3 className="text-base font-bold text-slate-900 mt-0.5">{job.serviceName}</h3>
                   </div>
                   <Badge size="sm">{job.status}</Badge>
                 </div>
 
                 {/* Progress Stepper Visual */}
                 <div className="py-3">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
                     Service Progression:
                   </p>
                   <div className="grid grid-cols-4 gap-1.5">
@@ -137,16 +136,16 @@ export const JobManagement = () => {
                                 ? "bg-orange-500 ring-2 ring-orange-400/50"
                                 : isPastOrCurrent
                                 ? "bg-emerald-500"
-                                : "bg-slate-800"
+                                : "bg-slate-200"
                             }`}
                           />
                           <p
                             className={`text-[9px] truncate text-center font-semibold ${
                               isCurrent
-                                ? "text-orange-400"
+                                ? "text-orange-600"
                                 : isPastOrCurrent
-                                ? "text-slate-300"
-                                : "text-slate-500"
+                                ? "text-slate-700"
+                                : "text-slate-400"
                             }`}
                           >
                             {s}
@@ -158,31 +157,31 @@ export const JobManagement = () => {
                 </div>
 
                 {/* Vehicle & Customer info */}
-                <div className="p-3.5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-1.5 text-xs mb-3">
-                  <div className="flex justify-between items-center text-slate-300">
-                    <span className="font-bold text-white">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs mb-3">
+                  <div className="flex justify-between items-center text-slate-700">
+                    <span className="font-bold text-slate-900">
                       {job.vehicleDetails?.make} {job.vehicleDetails?.model}
                     </span>
-                    <span className="font-mono font-bold text-orange-400">
+                    <span className="font-mono font-bold text-orange-600">
                       {job.vehicleDetails?.registrationNumber}
                     </span>
                   </div>
-                  <p className="text-slate-400 text-[11px]">
+                  <p className="text-slate-500 text-[11px]">
                     Customer: {job.customerName} ({job.customerPhone})
                   </p>
-                  <p className="text-slate-400 text-[11px] flex items-center gap-1.5">
-                    <FaClock className="text-orange-400" />
-                    <span>Estimated Completion: <strong className="text-white">{job.estimatedCompletionTime || "TBD"}</strong></span>
+                  <p className="text-slate-500 text-[11px] flex items-center gap-1.5">
+                    <FaClock className="text-orange-600" />
+                    <span>Estimated Completion: <strong className="text-slate-900">{job.estimatedCompletionTime || "TBD"}</strong></span>
                   </p>
                 </div>
 
                 {/* Diagnostic notes preview */}
                 {job.diagnosticFindings && (
-                  <div className="p-3 rounded-xl bg-slate-900/40 border border-sky-500/20 text-xs mb-2">
-                    <p className="text-[10px] font-bold text-sky-400 uppercase tracking-wider mb-0.5">
+                  <div className="p-3 rounded-xl bg-sky-50/50 border border-sky-200 text-xs mb-2">
+                    <p className="text-[10px] font-bold text-sky-700 uppercase tracking-wider mb-0.5">
                       Diagnostic Findings:
                     </p>
-                    <p className="text-slate-300 leading-relaxed text-[11px] line-clamp-2">
+                    <p className="text-slate-700 leading-relaxed text-[11px] line-clamp-2">
                       {job.diagnosticFindings}
                     </p>
                   </div>
@@ -190,7 +189,7 @@ export const JobManagement = () => {
               </div>
 
               {/* Action Button */}
-              <div className="pt-3 border-t border-slate-800 flex justify-end">
+              <div className="pt-3 border-t border-slate-200 flex justify-end">
                 <button
                   onClick={() => handleOpenUpdate(job)}
                   className="px-4 py-2 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 text-white text-xs font-bold rounded-xl shadow-md shadow-orange-500/20 transition-all flex items-center gap-1.5 cursor-pointer"
@@ -222,13 +221,13 @@ export const JobManagement = () => {
         >
           <form onSubmit={handleSaveJobUpdate} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Current Repair Stage
               </label>
               <select
                 value={stage}
                 onChange={(e) => setStage(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               >
                 <option value="Assigned">Assigned (Awaiting Bay)</option>
                 <option value="Accepted">Accepted (Prepped for Hoist)</option>
@@ -238,7 +237,7 @@ export const JobManagement = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Estimated Service Completion Time
               </label>
               <input
@@ -246,12 +245,12 @@ export const JobManagement = () => {
                 value={estimatedCompletion}
                 onChange={(e) => setEstimatedCompletion(e.target.value)}
                 placeholder="e.g. Today at 04:30 PM, or Tomorrow 11:00 AM"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Diagnostic Findings (OBD-II Codes, Rotor Wear, Battery Volts)
               </label>
               <textarea
@@ -259,12 +258,12 @@ export const JobManagement = () => {
                 value={diagnosticFindings}
                 onChange={(e) => setDiagnosticFindings(e.target.value)}
                 placeholder="e.g. Scanned OBD-II, zero engine DTCs. Rotor runout within 0.02mm OEM spec. Synthetic oil and OEM filter installed..."
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll font-mono"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll font-mono transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Technician Service Notes for Customer
               </label>
               <textarea
@@ -272,15 +271,15 @@ export const JobManagement = () => {
                 value={serviceNotes}
                 onChange={(e) => setServiceNotes(e.target.value)}
                 placeholder="Notes visible to customer in their live tracking view..."
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500 custom-scroll"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 custom-scroll transition-all"
               />
             </div>
 
-            <div className="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <div className="pt-3 border-t border-slate-200 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setActiveJob(null)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
               >
                 Cancel
               </button>
@@ -299,4 +298,3 @@ export const JobManagement = () => {
 };
 
 export default JobManagement;
-

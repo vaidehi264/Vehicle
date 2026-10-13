@@ -146,12 +146,12 @@ export const MechanicManagement = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Mechanic Management
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Registered technicians, specializations, hourly wage, performance ratings, and onboarding approval.
           </p>
         </div>
@@ -166,28 +166,28 @@ export const MechanicManagement = () => {
       </div>
 
       {/* Filter / Search Bar */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-lg">
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-sm shadow-slate-200/50">
         <div className="relative w-full sm:w-80">
-          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-3.5 h-3.5" />
+          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-3.5 h-3.5" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, specialization..."
-            className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-orange-500"
+            className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl pl-9 pr-3 py-2.5 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
           />
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <span className="text-xs text-slate-400 font-semibold mr-1">Application:</span>
+          <span className="text-xs text-slate-500 font-semibold mr-1">Application:</span>
           {["all", "approved", "pending", "rejected"].map((st) => (
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
               className={`px-3 py-1.5 text-xs font-semibold rounded-xl border capitalize transition-all cursor-pointer ${
                 statusFilter === st
-                  ? "bg-orange-500 text-white border-orange-500"
-                  : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                  ? "bg-orange-600 text-white border-orange-600 shadow-sm"
+                  : "bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               {st}
@@ -197,10 +197,10 @@ export const MechanicManagement = () => {
       </div>
 
       {/* Table */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-3xl shadow-xl overflow-hidden">
+      <div className="bg-white border border-slate-200/90 rounded-3xl shadow-sm shadow-slate-200/50 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-900/80 text-[11px] uppercase tracking-wider text-slate-400 border-b border-slate-800">
+            <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500 border-b border-slate-200">
               <tr>
                 <th className="py-3.5 px-4">Technician</th>
                 <th className="py-3.5 px-4">Specialization</th>
@@ -210,31 +210,31 @@ export const MechanicManagement = () => {
                 <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800">
+            <tbody className="divide-y divide-slate-100">
               {filteredMechanics.map((m) => (
-                <tr key={m.id} className="hover:bg-slate-850/60 transition-colors">
+                <tr key={m.id} className="hover:bg-slate-50/80 transition-colors">
                   <td className="py-3.5 px-4">
                     <div className="flex items-center gap-3">
                       <img
                         src={m.avatar || "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=100"}
                         alt={m.name}
-                        className="w-10 h-10 rounded-xl object-cover border border-slate-700 shrink-0"
+                        className="w-10 h-10 rounded-xl object-cover border border-slate-200 shrink-0"
                       />
                       <div>
-                        <p className="font-bold text-white text-sm">{m.name}</p>
-                        <p className="text-[11px] text-slate-400">{m.email}</p>
+                        <p className="font-bold text-slate-900 text-sm">{m.name}</p>
+                        <p className="text-[11px] text-slate-500">{m.email}</p>
                         <p className="text-[10px] text-slate-500">{m.phone}</p>
                       </div>
                     </div>
                   </td>
                   <td className="py-3.5 px-4">
-                    <p className="font-semibold text-orange-400">{m.specialization}</p>
-                    <p className="text-[11px] text-slate-400">₹{m.hourlyRate}/hr base rate</p>
+                    <p className="font-semibold text-orange-600">{m.specialization}</p>
+                    <p className="text-[11px] text-slate-500">₹{m.hourlyRate}/hr base rate</p>
                   </td>
                   <td className="py-3.5 px-4">
-                    <p className="text-slate-300 font-medium">{m.experience}</p>
-                    <div className="flex items-center gap-1 text-amber-400 font-bold text-xs mt-0.5">
-                      <FaStar className="w-3 h-3" />
+                    <p className="text-slate-700 font-medium">{m.experience}</p>
+                    <div className="flex items-center gap-1 text-amber-500 font-bold text-xs mt-0.5">
+                      <FaStar className="w-3 h-3 text-amber-500" />
                       <span>{m.rating || "5.0"}</span>
                       <span className="text-[10px] text-slate-500 font-normal">({m.reviewsCount || 0} reviews)</span>
                     </div>
@@ -253,14 +253,14 @@ export const MechanicManagement = () => {
                           <button
                             onClick={() => handleApproveReject(m, "Approved")}
                             title="Approve Application"
-                            className="p-2 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-lg border border-emerald-500/30 transition-colors cursor-pointer"
+                            className="p-2 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors cursor-pointer"
                           >
                             <FaCheck className="w-3 h-3" />
                           </button>
                           <button
                             onClick={() => handleApproveReject(m, "Rejected")}
                             title="Reject Application"
-                            className="p-2 text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 rounded-lg border border-rose-500/30 transition-colors cursor-pointer"
+                            className="p-2 text-rose-700 bg-rose-50 hover:bg-rose-100 rounded-lg border border-rose-200 transition-colors cursor-pointer"
                           >
                             <FaTimes className="w-3 h-3" />
                           </button>
@@ -270,7 +270,7 @@ export const MechanicManagement = () => {
                       <button
                         onClick={() => setSelectedMechanic(m)}
                         title="View Profile"
-                        className="p-2 text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 rounded-lg border border-slate-750 transition-colors cursor-pointer"
+                        className="p-2 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
                       >
                         <FaEye className="w-3.5 h-3.5" />
                       </button>
@@ -278,7 +278,7 @@ export const MechanicManagement = () => {
                       <button
                         onClick={() => openEditModal(m)}
                         title="Edit Details"
-                        className="p-2 text-slate-400 hover:text-orange-400 bg-slate-900 hover:bg-slate-800 rounded-lg border border-slate-750 transition-colors cursor-pointer"
+                        className="p-2 text-slate-600 hover:text-orange-600 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
                       >
                         <FaEdit className="w-3.5 h-3.5" />
                       </button>
@@ -308,15 +308,15 @@ export const MechanicManagement = () => {
           maxWidth="max-w-lg"
         >
           <div className="space-y-4">
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
               <img
                 src={selectedMechanic.avatar}
                 alt={selectedMechanic.name}
-                className="w-16 h-16 rounded-2xl object-cover border border-sky-500/40"
+                className="w-16 h-16 rounded-2xl object-cover border border-sky-300"
               />
               <div>
-                <h4 className="text-base font-bold text-white">{selectedMechanic.name}</h4>
-                <p className="text-xs text-orange-400 font-semibold">{selectedMechanic.specialization}</p>
+                <h4 className="text-base font-bold text-slate-900">{selectedMechanic.name}</h4>
+                <p className="text-xs text-orange-600 font-semibold">{selectedMechanic.specialization}</p>
                 <div className="flex items-center gap-2 mt-1.5">
                   <Badge size="xs">{selectedMechanic.status}</Badge>
                   <Badge size="xs">{selectedMechanic.availability}</Badge>
@@ -324,35 +324,35 @@ export const MechanicManagement = () => {
               </div>
             </div>
 
-            <p className="text-xs text-slate-300 italic bg-slate-900/40 p-3 rounded-xl border border-slate-800">
+            <p className="text-xs text-slate-600 italic bg-slate-50 p-3 rounded-xl border border-slate-200">
               "{selectedMechanic.bio || "Certified technician dedicated to precision diagnosis and preventative vehicle longevity."}"
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <span className="text-slate-400 block">Experience:</span>
-                <span className="font-bold text-white">{selectedMechanic.experience}</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-slate-500 block">Experience:</span>
+                <span className="font-bold text-slate-900">{selectedMechanic.experience}</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <span className="text-slate-400 block">Customer Rating:</span>
-                <span className="font-bold text-amber-400">★ {selectedMechanic.rating || "5.0"} ({selectedMechanic.completedJobs || 120}+ jobs)</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-slate-500 block">Customer Rating:</span>
+                <span className="font-bold text-amber-600">★ {selectedMechanic.rating || "5.0"} ({selectedMechanic.completedJobs || 120}+ jobs)</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <span className="text-slate-400 block">Hourly Rate:</span>
-                <span className="font-bold text-emerald-400">₹{selectedMechanic.hourlyRate}/hr</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-slate-500 block">Hourly Rate:</span>
+                <span className="font-bold text-emerald-600">₹{selectedMechanic.hourlyRate}/hr</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-                <span className="text-slate-400 block">Working Hours:</span>
-                <span className="font-bold text-white">{selectedMechanic.workingHours}</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-slate-500 block">Working Hours:</span>
+                <span className="font-bold text-slate-900">{selectedMechanic.workingHours}</span>
               </div>
             </div>
 
             {selectedMechanic.skills && selectedMechanic.skills.length > 0 && (
               <div>
-                <span className="text-xs font-semibold text-slate-400 block mb-1.5">Assessed Skills:</span>
+                <span className="text-xs font-semibold text-slate-500 block mb-1.5">Assessed Skills:</span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedMechanic.skills.map((s, i) => (
-                    <span key={i} className="text-[11px] px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">
+                    <span key={i} className="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">
                       {s}
                     </span>
                   ))}
@@ -360,10 +360,10 @@ export const MechanicManagement = () => {
               </div>
             )}
 
-            <div className="pt-3 border-t border-slate-800 flex justify-end gap-2">
+            <div className="pt-3 border-t border-slate-200 flex justify-end gap-2">
               <button
                 onClick={() => setSelectedMechanic(null)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
               >
                 Close
               </button>
@@ -382,47 +382,47 @@ export const MechanicManagement = () => {
         >
           <form onSubmit={handleSaveMechanic} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Full Name *</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name *</label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Balwinder Singh"
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Email *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email *</label>
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="tech@autoserve.com"
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Phone</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone</label>
                 <input
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+91 98450 00000"
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Specialization</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">Specialization</label>
               <select
                 value={formData.specialization}
                 onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
-                className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
               >
                 <option value="Engine Diagnostics & Overhaul">Engine Diagnostics & Overhaul</option>
                 <option value="Brake Systems & Suspension">Brake Systems & Suspension</option>
@@ -434,33 +434,33 @@ export const MechanicManagement = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Experience</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Experience</label>
                 <input
                   type="text"
                   value={formData.experience}
                   onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                   placeholder="e.g. 7 years"
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Hourly Rate (₹)</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Hourly Rate (₹)</label>
                 <input
                   type="number"
                   value={formData.hourlyRate}
                   onChange={(e) => setFormData({ ...formData, hourlyRate: Number(e.target.value) })}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Availability</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Availability</label>
                 <select
                   value={formData.availability}
                   onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 >
                   <option value="Available">Available</option>
                   <option value="Busy">Busy</option>
@@ -468,11 +468,11 @@ export const MechanicManagement = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Approval Status</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">Approval Status</label>
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl p-3 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
                 >
                   <option value="Approved">Approved</option>
                   <option value="Pending">Pending</option>
@@ -481,11 +481,11 @@ export const MechanicManagement = () => {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-800 flex justify-end gap-2">
+            <div className="pt-4 border-t border-slate-200 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setIsAddEditOpen(false)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl border border-slate-300 cursor-pointer"
               >
                 Cancel
               </button>
@@ -504,4 +504,3 @@ export const MechanicManagement = () => {
 };
 
 export default MechanicManagement;
-

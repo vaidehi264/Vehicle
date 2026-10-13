@@ -32,24 +32,24 @@ export const ToastProvider = ({ children }) => {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              className={`pointer-events-auto flex items-center justify-between gap-3 p-4 rounded-xl border shadow-xl backdrop-blur-md ${
+              className={`pointer-events-auto flex items-center justify-between gap-3 p-4 rounded-xl border shadow-xl backdrop-blur-md bg-white ${
                 toast.type === "success"
-                  ? "bg-emerald-950/90 border-emerald-500/40 text-emerald-100 shadow-emerald-950/50"
+                  ? "border-emerald-300 text-slate-800 shadow-emerald-500/10"
                   : toast.type === "error"
-                  ? "bg-rose-950/90 border-rose-500/40 text-rose-100 shadow-rose-950/50"
-                  : "bg-slate-900/90 border-orange-500/40 text-slate-100 shadow-black/50"
+                  ? "border-rose-300 text-slate-800 shadow-rose-500/10"
+                  : "border-orange-300 text-slate-800 shadow-orange-500/10"
               }`}
             >
               <div className="flex items-center gap-3">
-                {toast.type === "success" && <FaCheckCircle className="text-emerald-400 shrink-0 w-5 h-5" />}
-                {toast.type === "error" && <FaExclamationCircle className="text-rose-400 shrink-0 w-5 h-5" />}
-                {toast.type === "info" && <FaInfoCircle className="text-orange-400 shrink-0 w-5 h-5" />}
+                {toast.type === "success" && <FaCheckCircle className="text-emerald-500 shrink-0 w-5 h-5" />}
+                {toast.type === "error" && <FaExclamationCircle className="text-rose-500 shrink-0 w-5 h-5" />}
+                {toast.type === "info" && <FaInfoCircle className="text-orange-500 shrink-0 w-5 h-5" />}
                 <p className="text-sm font-medium leading-snug">{toast.message}</p>
               </div>
               <button
                 type="button"
                 onClick={() => removeToast(toast.id)}
-                className="text-slate-400 hover:text-white p-1 rounded-md transition-colors cursor-pointer"
+                className="text-slate-400 hover:text-slate-600 p-1 rounded-md transition-colors cursor-pointer"
               >
                 <FaTimes className="w-3.5 h-3.5" />
               </button>
@@ -62,4 +62,3 @@ export const ToastProvider = ({ children }) => {
 };
 
 export const useToast = () => useContext(ToastContext);
-

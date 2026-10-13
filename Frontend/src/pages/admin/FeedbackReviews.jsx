@@ -53,46 +53,46 @@ export const FeedbackReviews = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#182234] border border-slate-750/70 p-6 rounded-3xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-3xl shadow-sm shadow-slate-200/50">
         <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Customer Feedback & Reviews
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Read verified customer ratings, review remarks, technician praise, and moderate public feedback.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1.5">
-            <FaStar className="w-3.5 h-3.5" /> Average Satisfaction: 4.9 / 5.0
+          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1.5">
+            <FaStar className="w-3.5 h-3.5 text-amber-500" /> Average Satisfaction: 4.9 / 5.0
           </span>
         </div>
       </div>
 
       {/* Filter / Search Bar */}
-      <div className="bg-[#182234] border border-slate-750/70 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-lg">
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col sm:flex-row gap-3 justify-between items-center shadow-sm shadow-slate-200/50">
         <div className="relative w-full sm:w-80">
-          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-3.5 h-3.5" />
+          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-3.5 h-3.5" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by customer, comment, service..."
-            className="w-full bg-slate-900 border border-slate-750 text-white text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-orange-500"
+            className="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-xs rounded-xl pl-9 pr-3 py-2.5 focus:bg-white focus:outline-none focus:border-orange-500 transition-all"
           />
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <span className="text-xs text-slate-400 font-semibold mr-1">Rating:</span>
+          <span className="text-xs text-slate-500 font-semibold mr-1">Rating:</span>
           {["all", "5", "4", "3"].map((rate) => (
             <button
               key={rate}
               onClick={() => setRatingFilter(rate)}
               className={`px-3 py-1.5 text-xs font-semibold rounded-xl border transition-all cursor-pointer ${
                 ratingFilter === rate
-                  ? "bg-orange-500 text-white border-orange-500"
-                  : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                  ? "bg-orange-600 text-white border-orange-600 shadow-sm"
+                  : "bg-slate-50 text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               {rate === "all" ? "All Stars" : `${rate} ★`}
@@ -106,7 +106,7 @@ export const FeedbackReviews = () => {
         {filteredReviews.map((rev) => (
           <div
             key={rev.id}
-            className="bg-[#182234] border border-slate-750/70 rounded-3xl p-6 shadow-xl space-y-4 flex flex-col justify-between"
+            className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
@@ -114,44 +114,44 @@ export const FeedbackReviews = () => {
                   <img
                     src={rev.userAvatar}
                     alt={rev.userName}
-                    className="w-10 h-10 rounded-full object-cover border border-slate-700"
+                    className="w-10 h-10 rounded-full object-cover border border-slate-200"
                   />
                   <div>
-                    <h4 className="text-sm font-bold text-white">{rev.userName}</h4>
-                    <p className="text-[11px] text-slate-400">{rev.date} • Ref: {rev.bookingId}</p>
+                    <h4 className="text-sm font-bold text-slate-900">{rev.userName}</h4>
+                    <p className="text-[11px] text-slate-500">{rev.date} • Ref: {rev.bookingId}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1 text-amber-400 text-xs bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/20 font-bold">
-                    <FaStar className="w-3 h-3" /> {rev.rating}.0
+                  <div className="flex items-center gap-1 text-amber-700 text-xs bg-amber-50 px-2 py-1 rounded-lg border border-amber-200 font-bold">
+                    <FaStar className="w-3 h-3 text-amber-500" /> {rev.rating}.0
                   </div>
                   <Badge size="xs">{rev.status || "Published"}</Badge>
                 </div>
               </div>
 
-              <div className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 mb-3 space-y-1 text-xs">
-                <p className="text-orange-400 font-semibold">{rev.serviceName}</p>
-                <p className="text-slate-400">Serviced by: <span className="text-white font-medium">{rev.mechanicName}</span></p>
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 mb-3 space-y-1 text-xs">
+                <p className="text-orange-600 font-semibold">{rev.serviceName}</p>
+                <p className="text-slate-500">Serviced by: <span className="text-slate-900 font-medium">{rev.mechanicName}</span></p>
               </div>
 
-              <p className="text-xs text-slate-200 leading-relaxed italic bg-slate-900/40 p-3 rounded-xl border border-slate-800/80">
+              <p className="text-xs text-slate-700 leading-relaxed italic bg-slate-50 p-3 rounded-xl border border-slate-200">
                 "{rev.comment}"
               </p>
             </div>
 
-            <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
               <span className="text-slate-500 font-mono text-[11px]">{rev.id}</span>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => handleToggleStatus(rev)}
-                  className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-750 rounded-xl transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-300 rounded-xl transition-colors cursor-pointer"
                 >
                   {rev.status === "Published" ? "Hide Review" : "Publish Review"}
                 </button>
                 <button
                   onClick={() => handleDeleteReview(rev)}
-                  className="p-2 text-rose-400 hover:text-rose-300 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 rounded-xl transition-colors cursor-pointer"
+                  className="p-2 text-rose-700 hover:text-rose-800 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition-colors cursor-pointer"
                 >
                   <FaTrash className="w-3 h-3" />
                 </button>
@@ -173,4 +173,3 @@ export const FeedbackReviews = () => {
 };
 
 export default FeedbackReviews;
-
