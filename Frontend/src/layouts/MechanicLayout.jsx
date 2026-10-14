@@ -85,7 +85,7 @@ export const MechanicLayout = () => {
         </div>
 
         {/* Navigation items */}
-        <nav className="flex-1 px-3 py-4 space-y-1.5 overflow-y-auto custom-scroll">
+        <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto custom-scroll">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -94,14 +94,14 @@ export const MechanicLayout = () => {
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  `flex items-center gap-2.5 px-3.5 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive
-                      ? "bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-md shadow-orange-500/20 font-semibold"
+                      ? "bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-sm shadow-orange-500/20 font-semibold"
                       : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   }`
                 }
               >
-                <Icon className="w-4 h-4 shrink-0" />
+                <Icon className="w-3.5 h-3.5 shrink-0" />
                 <span>{item.name}</span>
               </NavLink>
             );
@@ -115,7 +115,7 @@ export const MechanicLayout = () => {
               <img
                 src={currentUser?.avatar || "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100"}
                 alt="Mechanic"
-                className="w-9 h-9 rounded-xl object-cover border border-sky-500/40 shrink-0"
+                className="w-8 h-8 rounded-lg object-cover border border-sky-500/40 shrink-0"
               />
               <div className="truncate">
                 <p className="text-xs font-bold text-slate-900 truncate">{currentUser?.name || "Suresh Verma"}</p>
@@ -125,9 +125,9 @@ export const MechanicLayout = () => {
             <button
               onClick={handleLogout}
               title="Logout"
-              className="text-slate-400 hover:text-rose-600 p-2 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer"
+              className="text-slate-400 hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer"
             >
-              <FaSignOutAlt className="w-4 h-4" />
+              <FaSignOutAlt className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

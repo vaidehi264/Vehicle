@@ -46,7 +46,7 @@ export const ReportsAnalytics = () => {
 
         {/* Date Filter */}
         <div className="flex items-center gap-2 bg-slate-100 border border-slate-200 p-1 rounded-xl">
-          <FaCalendarAlt className="w-3.5 h-3.5 text-orange-600 ml-2" />
+          <FaCalendarAlt className="w-3 h-3 text-orange-600 ml-2" />
           {[
             { id: "7days", label: "Last 7 Days" },
             { id: "30days", label: "Last 30 Days" },
@@ -151,7 +151,7 @@ export const ReportsAnalytics = () => {
         <div className="lg:col-span-5 bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm shadow-slate-200/50 space-y-4">
           <div className="flex justify-between items-center border-b border-slate-200 pb-3">
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-              <FaAward className="text-amber-500" /> Technician Leaderboard
+              <FaAward className="w-3.5 h-3.5 text-amber-500" /> Technician Leaderboard
             </h3>
             <span className="text-xs text-slate-500 font-semibold">Top Ranked</span>
           </div>
@@ -185,7 +185,7 @@ export const ReportsAnalytics = () => {
 
                 <div className="text-right">
                   <div className="flex items-center gap-1 text-amber-500 font-bold text-xs justify-end">
-                    <FaStar className="w-3 h-3 text-amber-500" /> {mech.rating}
+                    <FaStar className="w-2.5 h-2.5 text-amber-500" /> {mech.rating}
                   </div>
                   <span className="text-[10px] text-emerald-600 font-semibold block">
                     {mech.completedJobs || 120} jobs

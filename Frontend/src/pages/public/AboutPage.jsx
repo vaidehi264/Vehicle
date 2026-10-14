@@ -29,8 +29,8 @@ export const AboutPage = () => {
       {/* Grid of 4 Pillars */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white border border-slate-200/90 rounded-2xl p-6 space-y-3 shadow-sm shadow-slate-200/50">
-          <div className="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 border border-orange-200 flex items-center justify-center">
-            <FaShieldAlt className="w-6 h-6" />
+          <div className="w-9 h-9 rounded-lg bg-orange-50 text-orange-600 border border-orange-200 flex items-center justify-center">
+            <FaShieldAlt className="w-4 h-4" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Genuine OEM Parts</h3>
           <p className="text-xs text-slate-600 leading-relaxed">
@@ -39,8 +39,8 @@ export const AboutPage = () => {
         </div>
 
         <div className="bg-white border border-slate-200/90 rounded-2xl p-6 space-y-3 shadow-sm shadow-slate-200/50">
-          <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 border border-sky-200 flex items-center justify-center">
-            <FaTools className="w-6 h-6" />
+          <div className="w-9 h-9 rounded-lg bg-sky-50 text-sky-600 border border-sky-200 flex items-center justify-center">
+            <FaTools className="w-4 h-4" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Certified Technicians</h3>
           <p className="text-xs text-slate-600 leading-relaxed">
@@ -49,8 +49,8 @@ export const AboutPage = () => {
         </div>
 
         <div className="bg-white border border-slate-200/90 rounded-2xl p-6 space-y-3 shadow-sm shadow-slate-200/50">
-          <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
-            <FaCheckDouble className="w-6 h-6" />
+          <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
+            <FaCheckDouble className="w-4 h-4" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">Transparent Pricing</h3>
           <p className="text-xs text-slate-600 leading-relaxed">
@@ -59,8 +59,8 @@ export const AboutPage = () => {
         </div>
 
         <div className="bg-white border border-slate-200/90 rounded-2xl p-6 space-y-3 shadow-sm shadow-slate-200/50">
-          <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center">
-            <FaAward className="w-6 h-6" />
+          <div className="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center">
+            <FaAward className="w-4 h-4" />
           </div>
           <h3 className="text-lg font-bold text-slate-900">1,000 km Warranty</h3>
           <p className="text-xs text-slate-600 leading-relaxed">

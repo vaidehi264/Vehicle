@@ -41,17 +41,17 @@ export const ToastProvider = ({ children }) => {
               }`}
             >
               <div className="flex items-center gap-3">
-                {toast.type === "success" && <FaCheckCircle className="text-emerald-500 shrink-0 w-5 h-5" />}
-                {toast.type === "error" && <FaExclamationCircle className="text-rose-500 shrink-0 w-5 h-5" />}
-                {toast.type === "info" && <FaInfoCircle className="text-orange-500 shrink-0 w-5 h-5" />}
-                <p className="text-sm font-medium leading-snug">{toast.message}</p>
+                {toast.type === "success" && <FaCheckCircle className="text-emerald-500 shrink-0 w-4 h-4" />}
+                {toast.type === "error" && <FaExclamationCircle className="text-rose-500 shrink-0 w-4 h-4" />}
+                {toast.type === "info" && <FaInfoCircle className="text-orange-500 shrink-0 w-4 h-4" />}
+                <p className="text-xs font-medium leading-snug">{toast.message}</p>
               </div>
               <button
                 type="button"
                 onClick={() => removeToast(toast.id)}
                 className="text-slate-400 hover:text-slate-600 p-1 rounded-md transition-colors cursor-pointer"
               >
-                <FaTimes className="w-3.5 h-3.5" />
+                <FaTimes className="w-3 h-3" />
               </button>
             </motion.div>
           ))}

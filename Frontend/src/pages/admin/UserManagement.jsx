@@ -235,32 +235,32 @@ export const UserManagement = () => {
                       <button
                         onClick={() => setSelectedUser(u)}
                         title="View Details"
-                        className="p-2 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
+                        className="p-1.5 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
                       >
-                        <FaEye className="w-3.5 h-3.5" />
+                        <FaEye className="w-3 h-3" />
                       </button>
 
                       <button
                         onClick={() => openEditModal(u)}
                         title="Edit Customer"
-                        className="p-2 text-slate-600 hover:text-orange-600 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
+                        className="p-1.5 text-slate-600 hover:text-orange-600 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition-colors cursor-pointer"
                       >
-                        <FaEdit className="w-3.5 h-3.5" />
+                        <FaEdit className="w-3 h-3" />
                       </button>
 
                       <button
                         onClick={() => handleToggleStatus(u)}
                         title={u.status === "active" ? "Deactivate User" : "Activate User"}
-                        className={`p-2 rounded-lg border transition-colors cursor-pointer ${
+                        className={`p-1.5 rounded-lg border transition-colors cursor-pointer ${
                           u.status === "active"
                             ? "text-emerald-700 hover:text-rose-600 bg-emerald-50 border-emerald-200"
                             : "text-rose-700 hover:text-emerald-600 bg-rose-50 border-rose-200"
                         }`}
                       >
                         {u.status === "active" ? (
-                          <FaToggleOn className="w-4 h-4" />
+                          <FaToggleOn className="w-3.5 h-3.5" />
                         ) : (
-                          <FaToggleOff className="w-4 h-4" />
+                          <FaToggleOff className="w-3.5 h-3.5" />
                         )}
                       </button>
                     </div>

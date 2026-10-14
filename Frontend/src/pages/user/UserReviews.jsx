@@ -151,7 +151,7 @@ export const UserReviews = () => {
                   className="p-1 cursor-pointer transition-transform hover:scale-125"
                 >
                   <FaStar
-                    className={`w-7 h-7 ${
+                    className={`w-5 h-5 ${
                       (hoverRating || rating) >= star
                         ? "text-amber-400"
                         : "text-slate-200"

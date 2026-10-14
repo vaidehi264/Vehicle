@@ -67,7 +67,7 @@ export const AvailabilityManagement = () => {
               : "bg-amber-50 border-amber-300 text-amber-800"
           }`}
         >
-          {availability === "Available" ? <FaToggleOn className="w-5 h-5 text-emerald-600" /> : <FaToggleOff className="w-5 h-5 text-amber-600" />}
+          {availability === "Available" ? <FaToggleOn className="w-4 h-4 text-emerald-600" /> : <FaToggleOff className="w-4 h-4 text-amber-600" />}
           <span>Status: {availability}</span>
         </button>
       </div>

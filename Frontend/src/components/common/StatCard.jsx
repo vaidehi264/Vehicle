@@ -60,8 +60,8 @@ export const StatCard = ({ title, value, icon: Icon, change, trend = "up", subti
         </div>
 
         {Icon && (
-          <div className={`p-3.5 rounded-xl ${style.bg} ${style.text} border ${style.border} shrink-0`}>
-            <Icon className="w-6 h-6" />
+          <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${style.bg} ${style.text} border ${style.border} shrink-0`}>
+            <Icon className="w-3.5 h-3.5" />
           </div>
         )}
       </div>

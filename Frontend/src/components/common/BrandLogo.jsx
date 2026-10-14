@@ -9,13 +9,13 @@ export const BrandLogo = ({ size = "md", link = "/", showSubtitle = true }) => {
   const Content = (
     <div className="flex items-center gap-3 select-none group">
       <div
-        className={`relative flex items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 shadow-md shadow-orange-500/20 text-white transition-transform group-hover:scale-105 ${
-          isSm ? "w-8 h-8 rounded-lg" : isLg ? "w-12 h-12 rounded-2xl" : "w-10 h-10"
+        className={`relative flex items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 shadow-sm shadow-orange-500/20 text-white transition-transform group-hover:scale-105 ${
+          isSm ? "w-7 h-7 rounded-lg" : isLg ? "w-10 h-10 rounded-xl" : "w-8 h-8 rounded-lg"
         }`}
       >
-        <FaCarSide className={isSm ? "w-4 h-4" : isLg ? "w-6 h-6" : "w-5 h-5"} />
-        <span className="absolute -bottom-1 -right-1 bg-white border border-orange-500/60 p-0.5 rounded-full text-[10px] shadow-sm">
-          <FaWrench className="w-2.5 h-2.5 text-orange-600" />
+        <FaCarSide className={isSm ? "w-3 h-3" : isLg ? "w-4 h-4" : "w-3.5 h-3.5"} />
+        <span className="absolute -bottom-1 -right-1 bg-white border border-orange-500/60 p-0.5 rounded-full text-[9px] shadow-sm">
+          <FaWrench className="w-2 h-2 text-orange-600" />
         </span>
       </div>
       <div>
